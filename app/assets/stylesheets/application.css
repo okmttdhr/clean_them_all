@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require normalize-rails
+ *= require pickadate
+ *= require modules/alert
+ *= require modules/header
+ *= require modules/helpers
+ *= require modules/layout
+ *= require modules/marktext
+ *= require modules/panel
+ *= require modules/progress
+ *= require modules/sidebar
+ *= require modules/typography
+ *= require plugins/_prism
+ *= require plugins/_responsivetables
+ *= require remodal
+ *= require fontello
+ *= require animation
+ *= require switch
+ *= require style
+*/

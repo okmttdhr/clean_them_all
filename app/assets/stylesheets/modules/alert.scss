@@ -1,0 +1,79 @@
+@import 'compass';
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Progress
+*
+**/
+
+/* Alert Box */
+
+.alert-box{
+	padding: 15px 20px;
+	border: none;
+	background: lighten($c_primaryYellow, 15%);
+	color: $c_BodyText;
+	font-weight: 400;
+	font-family: $ff_body;
+	margin-bottom: 1.25em;
+	position: relative;
+
+	&.radius {
+		border-radius: 3px;
+	}
+
+	&.round {
+		border-radius: 1000px;
+	}
+
+	.close{
+		@include transition(opacity .2s ease-in-out);
+		padding: 17px 12px;
+		color: $c_BodyText;
+		opacity: .3;
+		font-size: 1.1em;
+		line-height: 0;
+		position: absolute;
+		top: 0.44em;
+		right: 0.3125em;
+
+		&:hover{
+			opacity: 1;
+		}
+	}
+
+	&.success{
+		background: $c_success;
+		color: $c_BodyText;
+
+		.close{
+			opacity: .3;
+
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+
+	&.alert{
+		background: $c_alert;
+		color: #fff;
+
+		.close{
+			color: #fff;
+			opacity: .8;
+
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+
+	&.secondary{
+		@include box-shadow(0 0 0 1px $c_secondary inset);
+		background: none;
+		color: $c_secondaryText;
+	}
+}

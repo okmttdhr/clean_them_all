@@ -1,0 +1,33 @@
+- content_for :scripts do
+  = render :partial => 'cleaners/scripts/pickadate'
+
+#options
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        削除オプション
+      %dl
+        %dt
+          リプライを保護
+        %dd.switch
+          = hidden_field_tag 'options[protect_reply]', '0'
+          = check_box_tag 'options[protect_reply]', '1', false, :class => 'flat', :id => 'protect_reply'
+          = label_tag 'protect_reply', ''
+      %dl.timeline
+        %dt
+          ふぁぼられを保護
+        %dd.switch
+          = hidden_field_tag 'options[protect_favorite]', '0'
+          = check_box_tag 'options[protect_favorite]', '1', false, :class => 'flat', :id => 'protect_favorite'
+          = label_tag 'protect_favorite', ''
+      %dl#datepickers
+        %dt
+          日付を指定
+        %dd
+          %span.prefix
+            %i.icon-calendar
+          = text_field_tag 'options[collect_from]', '', 'data-value' => session[:extras][:registered_at], :class => 'span2 collect_from', :placeholder => 'from', :readonly => true
+        %dd
+          %span.prefix
+            %i.icon-calendar
+          = text_field_tag 'options[collect_to]', '', :class => 'span2 collect_to', :placeholder => 'to', :readonly => true

@@ -1,0 +1,20 @@
+:javascript
+  $(document).on('open', '.remodal', function () {
+    KC.modal.update();
+  });
+  KC.modal = {
+    busyness: #{busyness_symbols.to_json},
+    update: function() {
+      $.ajax({
+        url: '#{status_cleaner_path}', type: 'GET', dataType: 'json',
+        success: function(data, status, xhr) { KC.modal.draw(data); }
+      });
+    },
+    draw: function(data) {
+      $('#busyness').html(KC.modal.busyness[data['busyness']]);
+      $('#active-job-count').html(data['processing_job_count']);
+      $('#statuses-count').html(data['statuses_count']);
+      $('#destroyed-count').html(data['destroyed_count']);
+      $('#failed-count').html(data['failed_count']);
+    },
+  };

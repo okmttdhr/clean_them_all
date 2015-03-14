@@ -1,0 +1,94 @@
+- content_for :scripts do
+  = render :partial => 'cleaners/scripts/modal'
+
+.remodal-overlay(style='display:none;')
+  .remodal#status-modal(data-remodal-id="modal")
+    %table
+      %thead
+        %tr
+          %th.caption(colspan='2')
+            Server
+      %tbody
+        %tr
+          %th
+            混雑度
+          %td
+            %span#busyness
+              = t("default.server_status.#{@status[:busyness]}")
+        %tr
+          %th
+            処理中
+          %td
+            %span#active-job-count
+              = @status[:processing_job_count]
+            users
+
+    %table
+      %thead
+        %tr
+          %th.caption(colspan='2')
+            Job
+      %tbody
+        %tr
+          %th
+            処理対象
+          %td
+            %span#statuses-count
+              = @status[:statuses_count]
+            件
+        %tr
+          %th
+            削除済
+          %td
+            %span#destroyed-count
+              = @status[:destroyed_count]
+            件
+        %tr
+          %th
+            失敗
+          %td
+            %span#failed-count
+              = @status[:failed_count]
+            回
+
+    %table
+      %thead
+        %tr
+          %th.caption(colspan='2')
+            Parameters
+      %tbody
+        %tr
+          %th
+            Name
+          %td
+            = @status[:name]
+        %tr
+          %th
+            From
+          %td
+            = @status[:collect_from]
+        %tr
+          %th
+            To
+          %td
+            = @status[:collect_to]
+        %tr
+          %th
+            Protect<br>
+            Reply
+          %td
+            = t("default.boolean.#{@status[:protect_reply]}_value")
+        %tr
+          %th
+            Protect<br>
+            Favorite
+          %td
+            = t("default.boolean.#{@status[:protect_favorite]}_value")
+        %tr
+          %th
+            Created At
+          %td
+            = @status[:created_at].to_time.to_s(:db)
+
+    %a(class="remodal-confirm" href="#")
+      OK

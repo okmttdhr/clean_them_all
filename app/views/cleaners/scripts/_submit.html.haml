@@ -1,0 +1,13 @@
+:javascript
+  $(document).ready(function() {
+    $('#submit').click(function(e) {
+      e.preventDefault();
+      var collect_method = $('#options_collect_method').val();
+      var archive_url    = $('#options_archive_url').val();
+      if (collect_method == 'archive' && archive_url == '') {
+        alert('全ツイート履歴のアップロードが必要です');
+        return false;
+      }
+      $("#new_cleaner").submit();
+    });
+  });

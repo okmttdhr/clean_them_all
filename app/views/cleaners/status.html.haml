@@ -1,0 +1,30 @@
+- content_for :scripts do
+  = render :partial => 'cleaners/status/modal'
+  = render :partial => 'cleaners/scripts/status'
+
+#content.blog.bg-dark
+  #status
+    %article.post.format-aside
+      .wrapped-content
+        .progress.bluegreen.radius
+          #bar.meter(style='width:0%;')
+        .indicator#indicator.text-center
+          ツイート取得中...<br>
+          完了!<br>
+          ここはS3から取得する<br>
+          = "#{@status[:destroyed_count]} / #{@status[:statuses_count]}"
+        .text-center(style='margin-top:15px;')
+          %a(href='#show' onclick="$('[data-remodal-id=modal]').remodal().open();")
+            show more status
+      %hr.no-margin
+      .wrapped-content.text-center
+        - if browser.mobile?
+          = render :partial => 'application/adsense/m300x250_03'
+        - else
+          = render :partial => 'application/adsense/d336x280_03'
+  .primary-button.text-center(style='margin:8px')
+    = link_to abort_cleaner_path, :method => :post, :class => 'button radius alert', :id => 'btn-abort', :disabled => @job.confirming? do
+      Abort
+    &nbsp;
+    = link_to confirm_cleaner_path, :method => :post, :class => 'button radius', :id => 'btn-confirm', :disabled => !@job.confirming? do
+      Result

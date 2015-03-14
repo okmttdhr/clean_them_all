@@ -1,0 +1,221 @@
+/**
+*
+* Imports
+*
+**/
+
+@import 'compass';
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Styles
+*
+**/
+
+#ps-custom-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: block;
+	width: 60px;
+	height: $h_photswipeToolbar;
+	color: #fff;
+
+	&.hover{
+		color: $c_primaryColor;
+	}
+}
+
+#ps-custom-back, .ps-toolbar-previous, .ps-toolbar-play, .ps-toolbar-next{
+	cursor: pointer;
+	@include noSelect();
+}
+
+.ps-toolbar-previous-disabled, .ps-toolbar-next-disabled{
+	opacity: .25;
+}
+
+body.ps-active, body.ps-building, div.ps-active, div.ps-building {
+	overflow: hidden;
+	background: $c_menuBg;
+}
+
+.ps-carousel{
+	opacity: 0;
+}
+
+.ps-carousel img, .ps-zoom-pan-rotate img {
+	padding: 0;
+	background: none;
+}
+
+body.ps-active *, div.ps-active * {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+body.ps-active *:focus, div.ps-active *:focus {
+	outline: 0;
+}
+
+div.ps-document-overlay {
+	background: $c_menuBg;
+	opacity: 0;
+}
+
+div.ps-uilayer {
+	background: $c_menuBg;
+	cursor: pointer;
+}
+
+div.ps-zoom-pan-rotate {
+	background: $c_menuBg;
+}
+
+div.ps-zoom-pan-rotate * {
+	display: block;
+}
+
+div.ps-carousel-item-loading {
+  background: url("../images/loader.png") no-repeat center center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2) {
+  div.ps-carousel-item-loading {
+	background-size: 20px;
+  }
+}
+
+div.ps-carousel-item-error {
+  background: url("../images/error.png") no-repeat center center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2) {
+  div.ps-carousel-item-error {
+	background-size: 20px;
+  }
+}
+
+/* Caption */
+div.ps-caption {
+	position: relative;
+	height: $h_photswipeToolbar;
+	background: $c_menuChildBg;
+	color: #fff;
+	text-align: center;
+	font-size: 14px;
+	font-family: $ff_heading;
+	line-height: $h_photswipeToolbar !important;
+}
+
+div.ps-caption * {
+	display: inline;
+}
+
+div.ps-caption-bottom {
+	min-height: 44px;
+}
+
+div.ps-caption-content {
+	display: block;
+}
+
+/* Toolbar */
+div.ps-toolbar {
+	display: table;
+	height: $h_photswipeToolbar;
+	background: $c_menuChildBg;
+	color: #ffffff;
+	table-layout: fixed;
+	text-align: center;
+	font-weight: 300;
+	font-size: 13px;
+	font-family: $ff_heading;
+	line-height: $h_photswipeToolbar;
+
+	div{
+		&.hover{
+			color: $c_primaryColor;
+		}
+	}
+}
+
+div.ps-toolbar * {
+	display: block;
+}
+
+div.ps-toolbar-close, div.ps-toolbar-previous, div.ps-toolbar-next, div.ps-toolbar-play, div.ps-toolbar-share {
+	display: table-cell;
+	cursor: pointer;
+}
+
+div.ps-toolbar {
+	margin: 0 auto 0;
+	width: 44px;
+	height: 44px;
+}
+
+
+
+
+/**
+*
+* Animations
+*
+**/
+
+/* Flickering Fix */
+
+.csstransitions{
+	.ps-document-overlay, .ps-carousel, .ps-toolbar, .ps-caption{
+		@include noFlicker();
+	}
+}
+
+
+
+/* Animation Durations and easings */
+
+.csstransitions{
+	.ps-document-overlay, .ps-carousel{
+		@include transition(all .5s ease-in-out);
+	}
+
+	.ps-toolbar, .ps-caption{
+		@include transition(all .5s);
+	}
+}
+
+
+
+/* Animations */
+
+.csstransforms{
+	.ps-carousel, .ps-document-overlay{
+		&.active {
+		  opacity: 1;
+		}
+	}
+
+	.ps-document-overlay{
+		&.unload {
+		  opacity: 0 !important;
+		}
+	}
+
+	.ps-caption {
+		@include transform(translate(0, -50px));
+
+		&.active{
+			@include transform(translate(0, 0));
+		}
+	}
+
+	.ps-toolbar {
+		@include transform(translate(0, 50px));
+
+		&.active{
+			@include transform(translate(0, 0));
+		}
+	}
+}

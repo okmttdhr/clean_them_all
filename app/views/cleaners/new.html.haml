@@ -1,0 +1,14 @@
+- content_for :scripts do
+  = render :partial => 'cleaners/scripts/submit'
+
+#content.blog.bg-dark
+  #new
+    = form_tag cleaner_path, :method => :post, :id => 'new_cleaner' do
+      = render :partial => 'cleaners/new/account'
+      = render :partial => 'cleaners/new/method'
+      = render :partial => 'cleaners/new/options'
+      = render :partial => 'cleaners/new/notices'
+
+  .primary-button.text-center(style='margin:8px')
+    = link_to new_cleaner_path, class: 'button radius alert', id: 'submit' do
+      削除を開始する

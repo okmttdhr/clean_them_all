@@ -1,0 +1,33 @@
+- if browser.mobile?
+  :javascript
+    $(document).ready(function() {
+      $('#twitter-archive-uploader').html('<a href="javascript:void(0);" class="button secondary tiny">Upload</a>');
+      $('#twitter-archive-uploader a').click(function() {
+        alert('スマートフォンには対応していません');
+      });
+    });
+- else
+  :javascript
+    $(document).ready(function() {
+      $('#twitter-archive-uploader')
+        .fineUploader({
+          request: {
+            endpoint: '#{upload_cleaner_path}',
+            paramsInBody: true,
+            customHeaders: { 'X-CSRF-Token': '#{form_authenticity_token}' }
+          },
+          multiple: false,
+          validation: {
+            allowedExtensions: ['zip'],
+            sizeLimit: 350720000
+          },
+          classes: {
+            success: 'panel success',
+            fail: 'panel alert'
+          },
+          debug: false
+        })
+        .on('complete', function(event, id, fileName, responseJSON) {
+          if (responseJSON.success) { $('#options_archive_url').attr('value', responseJSON.url); }
+        });
+    });

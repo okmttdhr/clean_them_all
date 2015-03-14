@@ -1,0 +1,25 @@
+- seed = Time.now.to_i
+- start_message  = start_message_for(seed)
+- finish_message = finish_message_for(seed)
+
+#notices
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        通知設定
+      %dl
+        %dt
+          開始メッセージ
+        %dd
+          = text_area_tag 'options[start_message]', start_message, :rows => 2, :class => 'full-width'
+      %p(style='margin-top: -15px;')
+        削除の開始時に投稿されます。<br>
+        メッセージは自由に編集できます。
+      %dl
+        %dt
+          完了メッセージ
+        %dd
+          = text_area_tag 'options[finish_message]', finish_message, :rows => 2, :class => 'full-width'
+      %p(style='margin-top: -15px;')
+        削除の完了時に投稿されます。<br>
+        メッセージは自由に編集できます。

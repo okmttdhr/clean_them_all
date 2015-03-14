@@ -1,0 +1,27 @@
+#content-fullwidth.blog.blog-single
+  #getstarted
+    %article.post.format-standard.text-center
+      = alert
+      = render partial: 'cleaners/getstarted/primary'
+      %hr.no-margin
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        - if browser.mobile?
+          = render :partial => 'application/adsense/m300x250_01'
+        - else
+          = render :partial => 'application/adsense/d336x280_01'
+      = render partial: 'cleaners/getstarted/social'
+      = render partial: 'cleaners/getstarted/features'
+      = render partial: 'cleaners/getstarted/customers'
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        - if browser.mobile?
+          = render :partial => 'application/adsense/m300x250_02'
+        - else
+          = render :partial => 'application/adsense/d336x280_02'
+      .wrapped-content.bg-dark
+        .primary-button
+          - if current_user.blank?
+            = link_to signin_path, method: :post, class: 'button radius' do
+              ツイッターでログイン
+          - else
+            = link_to info_cleaner_path, class: 'button radius' do
+              ツイッターでログイン

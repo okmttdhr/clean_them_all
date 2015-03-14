@@ -1,0 +1,36 @@
+:javascript
+  KC.status = {
+    timer: null,
+    update: function() {
+      $.ajax({
+        url: '#{status_cleaner_path}', type: 'GET', dataType: 'json',
+        success: function(data, status, xhr) { KC.status.draw(data); }
+      });
+    },
+    draw: function(data) {
+      // ステータス情報更新
+      if (data['job_state'] == 'processing') {
+        $('#bar').width((100 * data['destroyed_count'] / data['statuses_count'])+'%');
+        $('#indicator').html(data['destroyed_count'] + ' / ' + data['statuses_count']);
+      }
+      // 完了したら
+      if (data['job_state'] == 'confirming') {
+        clearInterval(KC.status.timer);
+        $('#btn-abort').attr('disabled', 'disabled');
+        $('#btn-abort').attr('href', 'javascript:void(0);');
+        $('#btn-confirm').removeAttr('disabled');
+        $('#btn-confirm').off('click');
+        $('#bar').width((100 * data['destroyed_count'] / data['statuses_count'])+'%');
+        $('#indicator').html('完了!');
+      }
+    },
+  };
+
+:javascript
+  $(document).bind('ready', function() {
+    KC.status.update();
+    KC.status.timer = setInterval(function() {
+      KC.status.update();
+      KC.modal.update();
+    }, 10000);
+  });

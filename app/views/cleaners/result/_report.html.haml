@@ -1,0 +1,21 @@
+- content_for :scripts do
+  = render :partial => 'cleaners/scripts/report'
+
+#report
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        ジョブの失敗を報告する
+      = form_tag report_cleaner_path, :method => :post, :remote => true, :id => 'report_form' do
+        %dl
+          %dt
+          %dd
+            = text_area_tag :message, '', :rows => 2, :placeholder => '失敗の内容を記入してください', :class => 'full-width'
+            = label_tag do
+              = check_box_tag :allow_reply
+              = 'リプライを希望する'
+        %button.button.tiny.expand.radius#submit
+          失敗報告を送信
+    %hr.no-margin
+    .wrapped-content
+      何度やっても上手くいかない場合は、ジョブが失敗したことを報告することができます。
