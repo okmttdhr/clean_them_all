@@ -6,7 +6,7 @@ class Service::ServicesController < ApplicationController
     @status = @health ? 200 : 500
 
     respond_to do |format|
-      format.html { render :json => { :success => @health }, :status => @status }
+      format.html { render json: { success: @health }, status: @status }
     end
   end
 end

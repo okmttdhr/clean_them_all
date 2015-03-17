@@ -6,8 +6,8 @@
 #  token      :string(255)      not null
 #  secret     :string(255)      not null
 #  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class User < ActiveRecord::Base

@@ -11,7 +11,5 @@ class JobDecorator < Draper::Decorator
     from = progression.created_at
     to   = progression.updated_at
     distance_of_time_in_words(from, to)
-  rescue => ex
-    nil
   end
 end

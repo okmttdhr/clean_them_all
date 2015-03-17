@@ -3,7 +3,6 @@
 # Table name: job_parameters
 #
 #  id               :integer          not null, primary key
-#  job_id           :integer          not null
 #  signedin_at      :datetime         not null
 #  statuses_count   :integer          not null
 #  registered_at    :datetime         not null
@@ -15,17 +14,13 @@
 #  collect_to       :date
 #  start_message    :string(255)
 #  finish_message   :string(255)
-#  created_at       :datetime
-#  updated_at       :datetime
-#
-# Indexes
-#
-#  index_job_parameters_on_job_id  (job_id) UNIQUE
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 
 require 'rails_helper'
 
-describe JobParameter, :type => :model do
+describe JobParameter, type: :model do
   describe '#extras=' do
     subject { job_parameter }
 

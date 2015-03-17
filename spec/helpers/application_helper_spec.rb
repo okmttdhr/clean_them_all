@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApplicationHelper, :type => :helper do
+describe ApplicationHelper, type: :helper do
   describe '#barwidth' do
     subject { helper.barwidth(status) }
     let(:status) { { destroyed_count: 30, statuses_count: 60 } }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Sessions', :type => :feature do
+feature 'Sessions', type: :feature do
   scenario 'first time login' do
     expect{
       sign_in

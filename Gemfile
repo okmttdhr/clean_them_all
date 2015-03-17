@@ -66,24 +66,19 @@ end
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-coolline'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'rspec-its', require: 'rspec/its'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'rb-fsevent'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'faker'
+  gem 'forgery'
   gem 'capybara'
   gem 'poltergeist'
   gem 'timecop'
@@ -92,12 +87,17 @@ group :development, :test do
   gem 'travis'
   gem 'travis-lint'
   gem 'coveralls', require: false
+  gem 'rubocop', require: false
 end
 
 ################################################################################
 group :development do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-coolline'
+  gem 'awesome_print'
+
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
-  gem 'awesome_print'
 end

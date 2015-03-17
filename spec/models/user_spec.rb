@@ -6,13 +6,13 @@
 #  token      :string(255)      not null
 #  secret     :string(255)      not null
 #  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 require 'rails_helper'
 
-describe User, :type => :model do
+describe User, type: :model do
   describe '#find_or_create_with_omniauth' do
     subject(:user) { User.find_or_create_with_omniauth(auth) }
 
@@ -23,7 +23,7 @@ describe User, :type => :model do
     } }
 
     context 'when user not exists' do
-      it { expect{ subject }.to change(User, :count).by(1) }
+      it { expect { subject }.to change(User, :count).by(1) }
       its(:id)     { is_expected.to eq 1 }
       its(:token)  { is_expected.to eq 'token' }
       its(:secret) { is_expected.to eq 'secret' }
@@ -35,7 +35,7 @@ describe User, :type => :model do
         create(:user, id: auth[:uid])
       end
 
-      it { expect{ subject }.not_to change(User, :count) }
+      it { expect { subject }.not_to change(User, :count) }
       its(:id)     { is_expected.to eq 1 }
       its(:token)  { is_expected.to eq 'token' }
       its(:secret) { is_expected.to eq 'secret' }

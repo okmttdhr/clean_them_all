@@ -1,11 +1,11 @@
 APP_ROOT = File.expand_path(File.dirname(File.dirname(File.dirname(__FILE__))))
 
 worker_processes 3
-listen APP_ROOT + "/tmp/sockets/unicorn.sock", :backlog => 64
+listen APP_ROOT + '/tmp/sockets/unicorn.sock', backlog: 64
 timeout 60
 
 working_directory APP_ROOT
-pid APP_ROOT + "/tmp/pids/unicorn.pid"
+pid APP_ROOT + '/tmp/pids/unicorn.pid'
 stderr_path '/dev/null'
 stdout_path '/dev/null'
 
@@ -21,7 +21,7 @@ before_fork do |server, worker|
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
     rescue Errno::ENOENT, Errno::ESRCH
-      puts "Old master alerady dead"
+      puts 'Old master alerady dead'
     end
   end
 

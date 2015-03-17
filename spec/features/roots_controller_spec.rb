@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Roots', :type => :feature do
+feature 'Roots', type: :feature do
   scenario 'show usage page' do
     visit usage_path
 

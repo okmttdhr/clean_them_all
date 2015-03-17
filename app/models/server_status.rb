@@ -16,8 +16,6 @@ class ServerStatus
                                 : BUSYNESS_HALT
   end
 
-  ##############################################################################
-
   def self.processing_job_count
     Job.processing.count
   end
