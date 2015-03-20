@@ -15,5 +15,9 @@
 require 'rails_helper'
 
 RSpec.describe JobProgression, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#expire?' do
+    subject { job_progression.expire? }
+    let(:job_progression) { build :job_progression }
+    it { is_expected.to be_falsey }
+  end
 end

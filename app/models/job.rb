@@ -15,7 +15,7 @@
 #
 
 class Job < ActiveRecord::Base
-  has_one :parameter,   class_name: 'JobParameter', foreign_key: :id
+  has_one :parameter,   class_name: 'JobParameter',   foreign_key: :id
   has_one :progression, class_name: 'JobProgression', foreign_key: :id
   belongs_to :user
 
@@ -52,9 +52,5 @@ class Job < ActiveRecord::Base
 
   def inprogress?
     processing? || confirming?
-  end
-
-  def broken?
-    progression.failed?
   end
 end
