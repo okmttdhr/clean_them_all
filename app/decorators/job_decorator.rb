@@ -1,10 +1,9 @@
 class JobDecorator < Draper::Decorator
   include ActionView::Helpers::DateHelper
-
   delegate_all
 
   def state_of_completion
-    broken? ? 'エラー中断' : '正常に完了'
+    progression.failed? ? 'エラー中断' : '正常に完了'
   end
 
   def processing_time

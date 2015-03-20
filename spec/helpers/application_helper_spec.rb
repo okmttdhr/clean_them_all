@@ -21,12 +21,28 @@ describe ApplicationHelper, type: :helper do
   describe '#start_message_for' do
     subject { helper.start_message_for(seed) }
     let(:seed) { Time.now.to_i }
+
     it { is_expected.to be_kind_of String }
+
+    context 'when exception raised' do
+      before do
+        allow(Message).to receive(:start_message).and_raise(RuntimeError)
+      end
+      it { is_expected.to be_nil }
+    end
   end
 
-  describe '#start_message_for' do
+  describe '#finish_message_for' do
     subject { helper.finish_message_for(seed) }
     let(:seed) { Time.now.to_i }
+
     it { is_expected.to be_kind_of String }
+
+    context 'when exception raised' do
+      before do
+        allow(Message).to receive(:finish_message).and_raise(RuntimeError)
+      end
+      it { is_expected.to be_nil }
+    end
   end
 end

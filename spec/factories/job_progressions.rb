@@ -14,5 +14,7 @@
 
 FactoryGirl.define do
   factory :job_progression do
+    created_at     { 15.minutes.ago }
+    updated_at     { DateTime.now }
   end
 end
