@@ -6,7 +6,7 @@ class CreateJobParameters < ActiveRecord::Migration
       t.integer    :statuses_count,   null: false
       t.datetime   :registered_at,    null: false
 
-      #options
+      # options
       t.integer    :collect_method,   null: false
       t.text       :archive_url
       t.boolean    :protect_reply,    default: false
@@ -16,7 +16,7 @@ class CreateJobParameters < ActiveRecord::Migration
       t.string     :start_message
       t.string     :finish_message
 
-      t.timestamps null:false
+      t.timestamps null: false
     end
   end
 end

@@ -3,4 +3,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     path_prefix: '/cleaner/auth'
   }
   OmniAuth.config.on_failure = SessionsController.action(:failure)
+  OmniAuth.config.logger = Rails.logger
 end

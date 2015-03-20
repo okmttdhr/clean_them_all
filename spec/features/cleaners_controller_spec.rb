@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'CleanersController', :type => :feature do
+feature 'CleanersController', type: :feature do
   background do
     @user = double(:user, id: 14186100, nickname: 'cohakim')
   end
@@ -137,7 +137,7 @@ feature 'CleanersController', :type => :feature do
 
     scenario '結果ページを表示する' do
       expect(current_path).to eq result_cleaner_path
-      expect(page).to have_content active_job.created_at.to_s(:db)
+      expect(page).to have_content active_job.progression.created_at.to_s(:db)
       expect(page).to have_content '正常に完了'
       expect(page).to have_link 'DONE'
     end

@@ -60,7 +60,7 @@ class CleanersController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render :json => @status }
+      format.json { render json: @status }
     end
   end
 

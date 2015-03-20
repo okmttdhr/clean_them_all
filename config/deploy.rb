@@ -46,11 +46,11 @@ end
 require 'capistrano/maintenance'
 namespace :deploy do
   namespace :web do
-    task :disable, :roles => :web do
+    task :disable, roles: :web do
       on_rollback { rm "#{shared_path}/system/maintenance.html" }
       require 'erb'
-      maintenance = ERB.new(File.read("./app/views/layouts/maintenance.erb")).result(binding)
-      put maintenance, "#{shared_path}/system/maintenance.html", :mode => 0644
+      maintenance = ERB.new(File.read('./app/views/layouts/maintenance.erb')).result(binding)
+      put maintenance, "#{shared_path}/system/maintenance.html", mode: 0644
     end
   end
 end

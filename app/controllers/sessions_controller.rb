@@ -37,6 +37,7 @@ class SessionsController < ApplicationController
   end
 
   ##############################################################################
+
   private
 
   def session_exception(ex)
@@ -45,12 +46,13 @@ class SessionsController < ApplicationController
   end
 
   ##############################################################################
+
   protected
 
   def extras_for(auth)
-    { :signedin_at    => signedin_at(auth),
-      :statuses_count => statuses_count(auth),
-      :registered_at  => registered_at(auth) }
+    { signedin_at: signedin_at(auth),
+      statuses_count: statuses_count(auth),
+      registered_at: registered_at(auth) }
   end
 
   def signedin_at(auth)

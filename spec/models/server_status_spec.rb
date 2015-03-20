@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ServerStatus, :type => :model do
+describe ServerStatus, type: :model do
   describe '#busyness_status' do
     subject { ServerStatus.busyness_status }
     it { is_expected.to eq [:empty, :normal, :jam, :halt] }

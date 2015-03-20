@@ -5,8 +5,8 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
 #  aasm_state :string(30)       not null
-#  created_at :datetime
-#  updated_at :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
@@ -15,7 +15,7 @@
 #
 
 class Job < ActiveRecord::Base
-  has_one :parameter, class_name: 'JobParameter', foreign_key: :id
+  has_one :parameter,   class_name: 'JobParameter', foreign_key: :id
   has_one :progression, class_name: 'JobProgression', foreign_key: :id
   belongs_to :user
 
@@ -25,26 +25,26 @@ class Job < ActiveRecord::Base
   ##############################################################################
   include AASM
 
-  aasm :column => :aasm_state do
-    state :processing, :initial => true
+  aasm column: :aasm_state do
+    state :processing, initial: true
     state :confirming
     state :closing
     state :closed
 
     event :finish do
-      transitions :to => :confirming, :from => [:processing]
+      transitions to: :confirming, from: [:processing]
     end
 
     event :abort do
-      transitions :to => :confirming, :from => [:processing]
+      transitions to: :confirming, from: [:processing]
     end
 
     event :confirm do
-      transitions :to => :closing, :from => [:confirming]
+      transitions to: :closing, from: [:confirming]
     end
 
     event :close do
-      transitions :to => :closed, :from => [:closing]
+      transitions to: :closed, from: [:closing]
     end
   end
 
