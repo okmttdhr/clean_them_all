@@ -9,17 +9,8 @@ module ApplicationHelper
     end
   end
 
-  def start_message_for(seed)
-    Message.start_message[seed % Message.start_message.count]
-  rescue => ex
-    Airbrake.notify(ex)
-    nil
-  end
-
-  def finish_message_for(seed)
-    Message.finish_message[seed % Message.finish_message.count]
-  rescue => ex
-    Airbrake.notify(ex)
-    nil
+  def notice_messages
+    index = Time.now.to_i % Message.count
+    [Message.start_message[index], Message.finish_message[index]]
   end
 end

@@ -18,31 +18,11 @@ describe ApplicationHelper, type: :helper do
     it { is_expected.to eq symbols }
   end
 
-  describe '#start_message_for' do
-    subject { helper.start_message_for(seed) }
-    let(:seed) { Time.now.to_i }
-
-    it { is_expected.to be_kind_of String }
-
-    context 'when exception raised' do
-      before do
-        allow(Message).to receive(:start_message).and_raise(RuntimeError)
-      end
-      it { is_expected.to be_nil }
-    end
-  end
-
-  describe '#finish_message_for' do
-    subject { helper.finish_message_for(seed) }
-    let(:seed) { Time.now.to_i }
-
-    it { is_expected.to be_kind_of String }
-
-    context 'when exception raised' do
-      before do
-        allow(Message).to receive(:finish_message).and_raise(RuntimeError)
-      end
-      it { is_expected.to be_nil }
+  describe '#notice_messages' do
+    let(:messages) { helper.notice_messages }
+    it '' do
+      expect(Message.start_message).to include messages[0]
+      expect(Message.finish_message).to include messages[1]
     end
   end
 end
