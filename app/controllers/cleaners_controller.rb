@@ -58,9 +58,6 @@ class CleanersController < ApplicationController
     @job    = current_user.active_job.decorate
     @status = current_status
 
-    # FIXME: invalid transition error
-    @job.finish! if @job.progression.finished?
-
     respond_to do |format|
       format.html
       format.json { render json: @status }
@@ -69,7 +66,7 @@ class CleanersController < ApplicationController
 
   def abort
     current_user.active_job.progression.abort!
-    current_user.active_job.abort!
+    current_user.active_job.finish!
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }

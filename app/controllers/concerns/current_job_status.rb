@@ -12,7 +12,6 @@ module CurrentJobStatus
       status.job_state            = current_user.active_job.aasm.current_state
       status.statuses_count       = current_user.active_job.progression.filter_count
       status.destroyed_count      = current_user.active_job.progression.destroy_count
-
       # parameters
       status.name             = current_user.name
       status.posted_from      = current_user.active_job.parameter.collect_from.try(:to_date)
