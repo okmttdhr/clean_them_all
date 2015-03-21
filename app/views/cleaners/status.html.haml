@@ -9,10 +9,7 @@
         .progress.bluegreen.radius
           #bar.meter(style='width:0%;')
         .indicator#indicator.text-center
-          ツイート取得中...<br>
-          完了!<br>
-          ここはS3から取得する<br>
-          = "#{@status[:destroyed_count]} / #{@status[:statuses_count]}"
+          = @job.state_message
         .text-center(style='margin-top:15px;')
           %a(href='#show' onclick="$('[data-remodal-id=modal]').remodal().open();")
             show more status

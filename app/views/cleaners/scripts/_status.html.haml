@@ -27,10 +27,10 @@
   };
 
 :javascript
-  $(document).bind('ready', function() {
+  $(document).on('ready', function() {
     KC.status.update();
     KC.status.timer = setInterval(function() {
       KC.status.update();
       KC.modal.update();
-    }, 10000);
+    }, 8000);
   });
