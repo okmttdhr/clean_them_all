@@ -20,6 +20,12 @@ class Job < ActiveRecord::Base
   belongs_to :user
 
   ##############################################################################
+  after_find :sync_state
+  def sync_state
+    finish! if progression.finished? && may_finish?
+  end
+
+  ##############################################################################
   scope :active, -> { where(aasm_state: %i(processing confirming closing)) }
 
   ##############################################################################
@@ -32,10 +38,6 @@ class Job < ActiveRecord::Base
     state :closed
 
     event :finish do
-      transitions to: :confirming, from: [:processing]
-    end
-
-    event :abort do
       transitions to: :confirming, from: [:processing]
     end
 

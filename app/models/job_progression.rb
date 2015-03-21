@@ -30,4 +30,16 @@ class JobProgression < ActiveRecord::Base
     # FIXME: not implemented
     false
   end
+
+  def collecting?
+    created? || collected?
+  end
+
+  def destroying?
+    filtered?
+  end
+
+  def finished?
+    completed? || aborted? || failed?
+  end
 end

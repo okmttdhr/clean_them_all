@@ -9,10 +9,10 @@ class ServerStatus
   end
 
   def self.busyness
-    max_duration = Time.now.to_i - (Job.processing.pluck(:updated_at).min || Time.now).to_i
-    (max_duration < 1.minutes)  ? BUSYNESS_EMPTY  :
-    (max_duration < 5.minutes)  ? BUSYNESS_NORMAL :
-    (max_duration < 10.minutes) ? BUSYNESS_JAM
+    duration = Time.now.to_i - (Job.processing.pluck(:updated_at).min || Time.now).to_i
+    (duration < 1.minutes)  ? BUSYNESS_EMPTY  :
+    (duration < 5.minutes)  ? BUSYNESS_NORMAL :
+    (duration < 10.minutes) ? BUSYNESS_JAM
                                 : BUSYNESS_HALT
   end
 

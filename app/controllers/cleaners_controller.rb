@@ -55,7 +55,7 @@ class CleanersController < ApplicationController
 
   def status
     @user   = current_user
-    @job    = current_user.active_job
+    @job    = current_user.active_job.decorate
     @status = current_status
 
     respond_to do |format|
@@ -65,7 +65,8 @@ class CleanersController < ApplicationController
   end
 
   def abort
-    current_user.active_job.abort!
+    current_user.active_job.progression.abort!
+    current_user.active_job.finish!
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }

@@ -1,9 +1,12 @@
 language: ruby
 rvm:
   - 2.2.1
-bundler_args: --without development
-sudo: false
+bundler_args: --without production --deployment --jobs=2
 cache: bundler
+sudo: false
+branches:
+  only:
+    - master
 env:
   - DB=mysql
 script:
