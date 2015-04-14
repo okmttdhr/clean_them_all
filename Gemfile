@@ -44,7 +44,7 @@ gem 'bourbon'
 gem 'normalize-rails'
 gem 'google-webfonts-rails'
 
-gem 'haml-rails'
+gem 'faml'
 gem 'browser'
 
 ################################################################################
