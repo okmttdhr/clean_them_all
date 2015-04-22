@@ -1,20 +1,15 @@
-# == Schema Information
-#
-# Table name: job_progressions
-#
-#  id            :integer          not null, primary key
-#  aasm_state    :string(255)
-#  handle        :integer
-#  collect_count :integer          default(0)
-#  filter_count  :integer          default(0)
-#  destroy_count :integer          default(0)
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#
-
 FactoryGirl.define do
   factory :job_progression do
-    created_at     { 15.minutes.ago }
-    updated_at     { DateTime.now }
+    id            { Faker::Number.number(1) }
+    current_state { 'created' }
+    collect_count { Faker::Number.number(1) }
+    filter_count  { Faker::Number.number(1) }
+    destroy_count { Faker::Number.number(1) }
+    created_at    { "2015-04-26 02:21:45 +0900" }
+    updated_at    { "2015-04-26 02:21:45 +0900" }
+
+    trait :with_state_completed do
+      current_state { 'completed' }
+    end
   end
 end

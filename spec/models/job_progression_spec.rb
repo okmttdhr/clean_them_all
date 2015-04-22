@@ -15,9 +15,4 @@
 require 'rails_helper'
 
 RSpec.describe JobProgression, type: :model do
-  describe '#expire?' do
-    subject { job_progression.expire? }
-    let(:job_progression) { build :job_progression }
-    it { is_expected.to be_falsey }
-  end
 end

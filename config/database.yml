@@ -1,14 +1,14 @@
 development:
   adapter: mysql2
   encoding: utf8mb4
-  database: clean_them_all_development
+  database: kurorekishi_me_development
   username:
   host: 127.0.0.1
 
 test:
   adapter: mysql2
   encoding: utf8mb4
-  database: clean_them_all_test
+  database: kurorekishi_me_test
   username:
   host: 127.0.0.1
 

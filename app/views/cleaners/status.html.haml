@@ -9,7 +9,7 @@
         .progress.bluegreen.radius
           #bar.meter(style='width:0%;')
         .indicator#indicator.text-center
-          = @job.state_message
+          = @status.state_message
         .text-center(style='margin-top:15px;')
           %a(href='#show' onclick="$('[data-remodal-id=modal]').remodal().open();")
             show more status
@@ -20,8 +20,7 @@
         - else
           = render :partial => 'application/adsense/d336x280_03'
   .primary-button.text-center(style='margin:8px')
-    = link_to abort_cleaner_path, :method => :post, :class => 'button radius alert', :id => 'btn-abort', :disabled => @job.confirming? do
+    = link_to abort_cleaner_path, :method => :post, :class => 'button radius alert', :id => 'btn-abort', :disabled => current_user.active_job.confirming? do
       Abort
-    &nbsp;
-    = link_to confirm_cleaner_path, :method => :post, :class => 'button radius', :id => 'btn-confirm', :disabled => !@job.confirming? do
+    = link_to confirm_cleaner_path, :method => :post, :class => 'button radius', :id => 'btn-confirm', :disabled => !current_user.active_job.confirming? do
       Result

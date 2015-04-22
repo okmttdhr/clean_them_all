@@ -3,7 +3,7 @@
     KC.modal.update();
   });
   KC.modal = {
-    busyness: #{busyness_symbols.to_json},
+    busyness: #{@status.busyness.to_json},
     update: function() {
       $.ajax({
         url: '#{status_cleaner_path}', type: 'GET', dataType: 'json',
@@ -11,9 +11,9 @@
       });
     },
     draw: function(data) {
-      $('#busyness').html(KC.modal.busyness[data['busyness']]);
-      $('#active-job-count').html(data['processing_job_count']);
-      $('#statuses-count').html(data['statuses_count']);
-      $('#destroyed-count').html(data['destroyed_count']);
+      $('#busyness').html(KC.modal.busyness[data['server_status']['busyness']]);
+      $('#active-job-count').html(data['server_status']['processing_job_count']);
+      $('#statuses-count').html(data['progression']['statuses_count']);
+      $('#destroyed-count').html(data['progression']['destroyed_count']);
     },
   };
