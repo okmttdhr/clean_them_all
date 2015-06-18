@@ -1,5 +1,5 @@
 class CleanersController < ApplicationController
-  include CurrentJobStatus
+  include CleanStatus
   include FileUpload
 
   ############################################################################
@@ -10,6 +10,8 @@ class CleanersController < ApplicationController
   before_action :active_job_should_be_processing, only:   [:abort]
   before_action :active_job_should_be_confirming, only:   [:confirm]
   before_action :active_job_should_be_closing,    only:   [:result, :destroy]
+
+  before_action :sync_progression, only: :status
 
   ############################################################################
 
@@ -40,11 +42,12 @@ class CleanersController < ApplicationController
   def create
     Job.create! do |job|
       job.build_parameter
-      job.build_progression
       job.user_id           = current_user.id
       job.parameter.extras  = session[:extras]
       job.parameter.options = params[:options]
     end
+    # TODO: 連携部分はオブザーバーに書き出す
+    # configatron.aws.sns.topic.publish(job.to_params, :create)
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }
@@ -54,19 +57,18 @@ class CleanersController < ApplicationController
   ############################################################################
 
   def status
-    @user   = current_user
-    @job    = current_user.active_job.decorate
-    @status = current_status
+    @status = CleanStatusDecorator.decorate(current_status)
 
     respond_to do |format|
-      format.html
-      format.json { render json: @status }
+      format.html { @status }
+      format.json { render json: @status.object }
     end
   end
 
   def abort
-    current_user.active_job.progression.abort!
     current_user.active_job.finish!
+    # TODO: 連携部分はオブザーバーに書き出す
+    # configatron.aws.sns.topic.publish(job.to_params, :cancel)
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }
@@ -84,12 +86,10 @@ class CleanersController < ApplicationController
   ############################################################################
 
   def result
-    @user   = current_user
-    @job    = current_user.active_job.decorate
-    @status = current_status
+    @status = CleanStatusDecorator.decorate(current_status)
 
     respond_to do |format|
-      format.html
+      format.html { @status }
     end
   end
 
@@ -98,6 +98,15 @@ class CleanersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to signout_path }
+    end
+  end
+
+  protected
+
+  def sync_progression
+    return unless current_user.active_job.may_finish?
+    if current_user.active_job.progression.current_state == :finished
+      current_user.active_job.finish!
     end
   end
 

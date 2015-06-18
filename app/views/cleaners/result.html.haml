@@ -1,9 +1,8 @@
 #content.blog.bg-dark
   #result
     = render :partial => 'cleaners/result/score'
-    = render :partial => 'cleaners/result/report'
     = render :partial => 'cleaners/result/support'
 
   .primary-button.text-center(style='margin:8px')
-    = link_to cleaner_path, :method => :delete, :class => 'button radius' do
+    = link_to cleaner_path, method: :delete, class: 'button radius' do
       DONE

@@ -37,6 +37,9 @@ Rails.application.routes.draw do
     get :contact, to: 'roots#contact', as: 'contact'
   end
 
+  # sidekiq
+  mount Sidekiq::Web => '/sidekiq' if Rails.env.development?
+
   # errors
   ActionDispatch::PublicExceptions.new('public/')
   get '/404', to: 'errors#render_404'

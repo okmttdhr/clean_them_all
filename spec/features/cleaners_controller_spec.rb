@@ -83,8 +83,11 @@ feature 'CleanersController', type: :feature do
 
   feature '削除ジョブ進捗ページ' do
     let!(:active_job) { create(:job, state, user_id: @user.id) }
+    let(:progression) { build(:job_progression) }
 
     background do
+      allow(JobProgression).to receive(:find).and_return(progression)
+
       sign_in @user
       visit status_cleaner_path
     end
@@ -136,8 +139,11 @@ feature 'CleanersController', type: :feature do
 
   feature '結果ページ' do
     let!(:active_job) { create(:job, :closing, user_id: @user.id) }
+    let(:progression) { build(:job_progression, :with_state_completed) }
 
     background do
+      allow(JobProgression).to receive(:find).and_return(progression)
+
       sign_in @user
       visit result_cleaner_path
     end

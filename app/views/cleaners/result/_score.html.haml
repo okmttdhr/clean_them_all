@@ -7,26 +7,26 @@
         %dt
           登録日時
         %dd
-          = @job.created_at.to_s(:db)
+          = @status.job.created_at.to_s(:db)
       %dl
         %dt
           完了状態
         %dd
-          = @job.state_of_completion
+          = @status.state_completion_message
       %dl
         %dt
           処理時間
         %dd
-          = @job.processing_time
+          = @status.processing_time
       %dl
         %dt
           処理対象
         %dd
-          = @job.progression.filter_count
+          = @status.progression.statuses_count
           件
       %dl
         %dt
           削除済
         %dd
-          = @job.progression.destroy_count
-          tweets
+          = @status.progression.destroyed_count
+          件

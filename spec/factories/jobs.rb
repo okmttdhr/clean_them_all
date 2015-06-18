@@ -38,7 +38,6 @@ FactoryGirl.define do
 
     after(:create) do |job|
       FactoryGirl.create(:job_parameter, id: job.id)
-      FactoryGirl.create(:job_progression, id: job.id)
     end
   end
 end

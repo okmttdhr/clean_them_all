@@ -34,7 +34,7 @@ describe Job, type: :model do
     end
   end
 
-  describe '#sync_state'
+  describe '#find_with_sync_state'
 
   describe '#inprogress?' do
     context 'when job is inprogress' do

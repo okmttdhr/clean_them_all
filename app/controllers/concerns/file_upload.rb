@@ -28,7 +28,7 @@ module FileUpload
     end
 
   rescue => ex
-    Airbrake.notify(ex)
+    NewRelic::Agent.notice_error(ex)
 
     respond_to do |format|
       format.json { render json: { success: false }, status: 500 }

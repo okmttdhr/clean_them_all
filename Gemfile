@@ -2,29 +2,29 @@ source 'https://rubygems.org'
 
 ################################################################################
 gem 'rails', '4.2.1'
+gem 'mysql2'
 
 ################################################################################
-gem 'mysql2'
+gem 'newrelic_rpm'
 gem 'rails-bigint-pk'
 gem 'dotenv-rails'
 gem 'configatron'
 gem 'settingslogic'
-gem 'airbrake'
 gem 'quiet_assets'
 gem 'asset_sync'
 
 ################################################################################
-gem 'aws-sdk-v1'
-gem 'unf'
+gem 'aws-sdk'
 
 ################################################################################
-gem 'aasm'
 gem 'rails-observers'
-gem 'draper'
+gem 'aasm'
+gem 'hashie'
 
 ################################################################################
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'draper'
 
 ################################################################################
 gem 'sass-rails', '~> 5.0'
@@ -44,12 +44,11 @@ gem 'bourbon'
 gem 'normalize-rails'
 gem 'google-webfonts-rails'
 
-gem 'haml-rails'
+gem 'faml'
 gem 'browser'
 
 ################################################################################
 group :production do
-  gem 'newrelic_rpm'
   gem 'unicron'
   gem 'unicorn-rails'
 end
@@ -64,6 +63,11 @@ end
 
 ################################################################################
 group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-coolline'
+  gem 'awesome_print'
+
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
@@ -92,12 +96,12 @@ end
 
 ################################################################################
 group :development do
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-coolline'
-  gem 'awesome_print'
-
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
+
+  gem 'sidekiq', require: 'sidekiq/web'
+  gem 'sidetiq', require: 'sidetiq/web'
+  gem 'sidekiq-status'
+  gem 'sinatra', require: false
 end

@@ -15,15 +15,10 @@
 #
 
 class Job < ActiveRecord::Base
-  has_one :parameter,   class_name: 'JobParameter',   foreign_key: :id
-  has_one :progression, class_name: 'JobProgression', foreign_key: :id
-  belongs_to :user
+  include Publishable
 
-  ##############################################################################
-  after_find :sync_state
-  def sync_state
-    finish! if progression.finished? && may_finish?
-  end
+  has_one :parameter,   class_name: 'JobParameter',   foreign_key: :id
+  belongs_to :user
 
   ##############################################################################
   scope :active, -> { where(aasm_state: %i(processing confirming closing)) }
@@ -50,9 +45,13 @@ class Job < ActiveRecord::Base
     end
   end
 
-  ##############################################################################
-
   def inprogress?
     processing? || confirming?
+  end
+
+  ##############################################################################
+
+  def progression
+    JobProgression.find(id)
   end
 end

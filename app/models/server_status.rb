@@ -13,7 +13,7 @@ class ServerStatus
     (duration < 1.minutes)  ? BUSYNESS_EMPTY  :
     (duration < 5.minutes)  ? BUSYNESS_NORMAL :
     (duration < 10.minutes) ? BUSYNESS_JAM
-                                : BUSYNESS_HALT
+                            : BUSYNESS_HALT
   end
 
   def self.processing_job_count
