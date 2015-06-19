@@ -9,23 +9,24 @@ class CleanStatusDecorator < Draper::Decorator
   end
 
   def state_message
-    if object.job.current_state == 'processing'
-      if object.progression.current_state == 'collecting'
+    if object.job.current_state == :processing
+      if object.progression.current_state == :collecting
         'ツイート取得中...'
-      elsif object.progression.current_state == 'destroying'
+      elsif object.progression.current_state == :destroying
         "#{object.progression.destroyed_count} / #{object.progression.statuses_count}"
       end
-    elsif object.job.current_state == 'confirming'
+    elsif object.job.current_state == :confirming
       '完了!'
     end
   end
 
   def state_completion_message
-    if object.progression.current_state == 'completed'
+    case object.progression.current_state
+    when :completed
       '正常に完了しました'
-    elsif object.progression.current_state == 'failed'
+    when :failed
       'エラーが発生し強制終了されました'
-    else
+    when :collecting, :destroying, :aborted
       'ユーザによりキャンセルされました'
     end
   end

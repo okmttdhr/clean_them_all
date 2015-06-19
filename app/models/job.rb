@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: jobs
+# Table name: clean_them_all_jobs
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
@@ -10,14 +10,14 @@
 #
 # Indexes
 #
-#  index_jobs_on_aasm_state  (aasm_state)
-#  index_jobs_on_user_id     (user_id)
+#  index_clean_them_all_jobs_on_aasm_state  (aasm_state)
+#  index_clean_them_all_jobs_on_user_id     (user_id)
 #
 
 class Job < ActiveRecord::Base
   include Publishable
 
-  has_one :parameter,   class_name: 'JobParameter',   foreign_key: :id
+  has_one :parameter, class_name: 'JobParameter'
   belongs_to :user
 
   ##############################################################################
@@ -33,6 +33,10 @@ class Job < ActiveRecord::Base
     state :closed
 
     event :finish do
+      transitions to: :confirming, from: [:processing]
+    end
+
+    event :abort do
       transitions to: :confirming, from: [:processing]
     end
 

@@ -151,6 +151,14 @@ Style/MultilineTernaryOperator:
 Style/Blocks:
   Enabled: false
 
+Style/BlockDelimiters:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/SpaceAroundOperators:
+  Enabled: false
+
 ##################### Lint ##################################
 
 # * 同名のメソッドがある場合にローカル変数に `_` を付ける

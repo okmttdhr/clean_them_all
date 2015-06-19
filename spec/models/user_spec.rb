@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: clean_them_all_users
 #
 #  id         :integer          not null, primary key
 #  token      :string(255)      not null

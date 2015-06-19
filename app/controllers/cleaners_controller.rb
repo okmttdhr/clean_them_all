@@ -46,8 +46,6 @@ class CleanersController < ApplicationController
       job.parameter.extras  = session[:extras]
       job.parameter.options = params[:options]
     end
-    # TODO: 連携部分はオブザーバーに書き出す
-    # configatron.aws.sns.topic.publish(job.to_params, :create)
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }
@@ -66,9 +64,7 @@ class CleanersController < ApplicationController
   end
 
   def abort
-    current_user.active_job.finish!
-    # TODO: 連携部分はオブザーバーに書き出す
-    # configatron.aws.sns.topic.publish(job.to_params, :cancel)
+    current_user.active_job.abort! if current_user.active_job.may_abort?
 
     respond_to do |format|
       format.html { redirect_to status_cleaner_path }

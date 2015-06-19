@@ -40,7 +40,8 @@ describe ServerStatus, type: :model do
 
   describe '#processing_job_count' do
     subject { ServerStatus.processing_job_count }
-    before { create_list(:job, 3, :processing) }
-    it { is_expected.to eq 3 }
+    let(:job_count) { Forgery(:basic).number }
+    before { create_list(:job, job_count, :processing) }
+    it { is_expected.to eq job_count }
   end
 end

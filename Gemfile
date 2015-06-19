@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ################################################################################
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.2'
 gem 'mysql2'
 
 ################################################################################
@@ -81,7 +81,6 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
-  gem 'faker'
   gem 'forgery'
   gem 'capybara'
   gem 'poltergeist'
@@ -99,9 +98,4 @@ group :development do
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
-
-  gem 'sidekiq', require: 'sidekiq/web'
-  gem 'sidetiq', require: 'sidetiq/web'
-  gem 'sidekiq-status'
-  gem 'sinatra', require: false
 end
