@@ -1,8 +1,9 @@
 # == Schema Information
 #
-# Table name: job_parameters
+# Table name: clean_them_all_job_parameters
 #
 #  id               :integer          not null, primary key
+#  job_id           :integer
 #  signedin_at      :datetime         not null
 #  statuses_count   :integer          not null
 #  registered_at    :datetime         not null

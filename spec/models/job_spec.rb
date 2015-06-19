@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: jobs
+# Table name: clean_them_all_jobs
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
@@ -10,16 +10,18 @@
 #
 # Indexes
 #
-#  index_jobs_on_aasm_state  (aasm_state)
-#  index_jobs_on_user_id     (user_id)
+#  index_clean_them_all_jobs_on_aasm_state  (aasm_state)
+#  index_clean_them_all_jobs_on_user_id     (user_id)
 #
 
 require 'rails_helper'
 
 describe Job, type: :model do
+  it_behaves_like 'publishable'
+
   describe 'scopes' do
     describe '.active' do
-      subject { Job.active }
+      subject { described_class.active }
 
       let!(:active_jobs) {
         %i(processing confirming closing).map do |state|
@@ -33,8 +35,6 @@ describe Job, type: :model do
       end
     end
   end
-
-  describe '#find_with_sync_state'
 
   describe '#inprogress?' do
     context 'when job is inprogress' do
@@ -54,5 +54,18 @@ describe Job, type: :model do
         end
       end
     end
+  end
+
+  describe '#progression' do
+    subject { job.progression }
+
+    let(:job) { described_class.new }
+    let(:progression) { build(:job_progression) }
+
+    before do
+      allow(JobProgression).to receive(:request_progression).and_return(progression)
+    end
+
+    it { is_expected.to be_kind_of JobProgression }
   end
 end

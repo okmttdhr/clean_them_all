@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "job_parameters", force: :cascade do |t|
+    t.integer  "job_id",           limit: 8
     t.datetime "signedin_at",                                    null: false
     t.integer  "statuses_count",   limit: 4,                     null: false
     t.datetime "registered_at",                                  null: false
@@ -46,46 +47,5 @@ ActiveRecord::Schema.define(version: 3) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  create_table "collect_and_destroy_job_credentials", force: :cascade do |t|
-    t.string   "consumer_key",        limit: 255, null: false
-    t.string   "consumer_secret",     limit: 255, null: false
-    t.string   "access_token",        limit: 255, null: false
-    t.string   "access_token_secret", limit: 255, null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-  end
-
-  create_table "collect_and_destroy_job_parameters", force: :cascade do |t|
-    t.datetime "signedin_at",                                    null: false
-    t.integer  "statuses_count",   limit: 4,                     null: false
-    t.datetime "registered_at",                                  null: false
-    t.integer  "collect_method",   limit: 4,                     null: false
-    t.text     "archive_url",      limit: 65535
-    t.boolean  "protect_reply",    limit: 1,     default: false
-    t.boolean  "protect_favorite", limit: 1,     default: false
-    t.date     "collect_from"
-    t.date     "collect_to"
-    t.string   "start_message",    limit: 255
-    t.string   "finish_message",   limit: 255
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-  end
-
-  create_table "collect_and_destroy_jobs", force: :cascade do |t|
-    t.string   "aasm_state",    limit: 255
-    t.integer  "handle",        limit: 4
-    t.integer  "collect_count", limit: 4,   default: 0
-    t.integer  "filter_count",  limit: 4,   default: 0
-    t.integer  "destroy_count", limit: 4,   default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
-
-  create_table "collect_and_destroy_schema_migrations", id: false, force: :cascade do |t|
-    t.string "version", limit: 191, null: false
-  end
-
-  add_index "collect_and_destroy_schema_migrations", ["version"], name: "collect_and_destroy_unique_schema_migrations", unique: true, using: :btree
 
 end
