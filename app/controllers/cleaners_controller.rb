@@ -101,7 +101,10 @@ class CleanersController < ApplicationController
 
   def sync_progression
     return unless current_user.active_job.may_finish?
-    if current_user.active_job.progression.current_state == :finished
+    # FIXME: ましな同期の方法を考える
+    if current_user.active_job.progression.current_state == :completed
+      current_user.active_job.finish!
+    elsif current_user.active_job.progression.current_state == :failed
       current_user.active_job.finish!
     end
   end

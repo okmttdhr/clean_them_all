@@ -3,12 +3,17 @@ class JobProgression < Hashie::Dash
   include Hashie::Extensions::Dash::PropertyTranslation
 
   STATUS = {
-    created:   :collecting,
-    collected: :collecting,
-    filtered:  :destroying,
-    completed: :completed,
-    aborted:   :aborted,
-    failed:    :failed,
+    created:    :collecting,
+    collecting: :collecting,
+    collected:  :collecting,
+    filtering:  :collecting,
+    filtered:   :collecting,
+    destroying: :destroying,
+    destroyed:  :destroying,
+    completed:  :completed,
+    aborted:    :aborted,
+    failed:     :failed,
+    expired:    :failed,
   }.with_indifferent_access
 
   property :id, transform_with: ->(value) { value.to_i }
