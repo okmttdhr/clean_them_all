@@ -1,17 +1,16 @@
 set :application, 'clean_them_all'
 set :user,        'ec2-user'
-ssh_options[:keys] = '~/.ssh/ec2/id_rsa'
+ssh_options[:keys] = '~/.ssh/id_rsa.ec2'
 set :use_sudo,    false
 
 set :scm,         :git
-set :branch,      'vpc'
-set :repository,  '~/Dropbox/Projects/Service/clean_them_all'
+set :repository,  '.'
 set :deploy_via,  :copy
 set :deploy_to,   '/var/www/app/clean_them_all'
 
 # for capistrano-ext
-set :stages, ['production']
-set :default_stage, 'production'
+set :stages, ['production', 'staging']
+set :default_stage, 'staging'
 require 'capistrano/ext/multistage'
 
 # for asset pipeline
@@ -26,12 +25,8 @@ set :bundle_without,  [:development, :test]
 set :bundle_cmd,      'bundle'
 set :bundle_roles,    [:web]
 
-# for dotenv
-require 'dotenv/capistrano'
-
 # for unicorn
 require 'capistrano-unicorn'
-set :unicorn_env, 'production'
 set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 set :unicorn_bin, 'unicorn'
 
@@ -53,4 +48,10 @@ namespace :deploy do
       put maintenance, "#{shared_path}/system/maintenance.html", mode: 0644
     end
   end
+end
+
+# create database
+desc 'execute after deploy:setup'
+after 'deploy:setup' do
+  run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:create"
 end

@@ -12,6 +12,16 @@ test:
   username:
   host: 127.0.0.1
 
+staging:
+  adapter: mysql2
+  encoding: utf8mb4
+  database: clean_them_all_staging
+  username: root
+  password:
+  reconnect: true
+  host: localhost
+  pool: 1
+
 production:
   adapter: mysql2
   encoding: utf8mb4
