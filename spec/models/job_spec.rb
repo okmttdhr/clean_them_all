@@ -55,17 +55,4 @@ describe Job, type: :model do
       end
     end
   end
-
-  describe '#progression' do
-    subject { job.progression }
-
-    let(:job) { described_class.new }
-    let(:progression) { build(:job_progression) }
-
-    before do
-      allow(JobProgression).to receive(:request_progression).and_return(progression)
-    end
-
-    it { is_expected.to be_kind_of JobProgression }
-  end
 end

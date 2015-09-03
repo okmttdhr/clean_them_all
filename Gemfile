@@ -68,6 +68,7 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'web-console', '~> 2.0'
+  gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'rspec-its', require: 'rspec/its'
   gem 'factory_girl_rails'
@@ -95,4 +96,5 @@ group :development do
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
+  gem 'dotenv-rails'
 end

@@ -42,6 +42,7 @@ class CleanersController < ApplicationController
   def create
     Job.create! do |job|
       job.build_parameter
+      job.build_progression
       job.user_id           = current_user.id
       job.parameter.extras  = session[:extras]
       job.parameter.options = params[:options]
@@ -97,19 +98,18 @@ class CleanersController < ApplicationController
     end
   end
 
+
   protected
 
   def sync_progression
     return unless current_user.active_job.may_finish?
     # FIXME: ましな同期の方法を考える
-    if current_user.active_job.progression.current_state == :completed
-      current_user.active_job.finish!
-    elsif current_user.active_job.progression.current_state == :failed
+    if JobProgression::FINISH_STATES.include? current_user.active_job.progression.aasm.current_state
       current_user.active_job.finish!
     end
   end
 
-  protected
+  ############################################################################
 
   def user_should_be_authorized
     redirect_to getstarted_cleaner_path unless current_user.present?

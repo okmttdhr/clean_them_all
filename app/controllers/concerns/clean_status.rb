@@ -10,7 +10,7 @@ module CleanStatus
         created_at:    current_user.active_job.created_at,
       },
       progression: {
-        current_state:   current_user.active_job.progression.current_state,
+        current_state:   current_user.active_job.progression.aasm.current_state,
         statuses_count:  current_user.active_job.progression.filter_count,
         destroyed_count: current_user.active_job.progression.destroy_count,
         created_at:      current_user.active_job.progression.created_at,
