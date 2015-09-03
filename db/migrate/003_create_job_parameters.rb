@@ -1,8 +1,6 @@
 class CreateJobParameters < ActiveRecord::Migration
   def change
     create_table :job_parameters do |t|
-      t.references :job
-
       # extras
       t.datetime   :signedin_at,      null: false
       t.integer    :statuses_count,   null: false

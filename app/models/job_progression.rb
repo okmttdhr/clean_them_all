@@ -1,21 +1,21 @@
-class JobProgression < Hashie::Dash
-  include Progressable
-  include Hashie::Extensions::Dash::PropertyTranslation
+class JobProgression < ActiveRecord::Base
+  belongs_to :job
 
-  STATUS = {
-    created:   :collecting,
-    collected: :collecting,
-    filtered:  :destroying,
-    completed: :completed,
-    aborted:   :aborted,
-    failed:    :failed,
-  }.with_indifferent_access
+  PROCESSING_STATES = %i(created collecting collected filtering filtered destroying destroyed)
+  FINISH_STATES     = %i(completed aborted failed expired)
 
-  property :id, transform_with: ->(value) { value.to_i }
-  property :current_state, default: nil, transform_with: ->(value) { STATUS.fetch(value, :collecting) }
-  property :collect_count, default: 0,   transform_with: ->(value) { value.to_i }
-  property :filter_count,  default: 0,   transform_with: ->(value) { value.to_i }
-  property :destroy_count, default: 0,   transform_with: ->(value) { value.to_i }
-  property :created_at, default: DateTime.now
-  property :updated_at, default: DateTime.now
+  include AASM
+  aasm do
+    state :created, initial: true
+    state :collecting
+    state :collected
+    state :filtering
+    state :filtered
+    state :destroying
+    state :destroyed
+    state :completed
+    state :aborted
+    state :failed
+    state :expired
+  end
 end

@@ -8,18 +8,33 @@
       });
     },
     draw: function(data) {
-      // ツイート取得中
-      if (data['job']['current_state'] == 'processing' && data['progression']['current_state'] == 'collecting') {
-        $('#bar').width('0%');
-        $('#indicator').html('ツイート取得中...');
+      if (data['job']['current_state'] == 'processing') {
+        // 処理開始待ち
+        if (data['progression']['current_state'] == 'created') {
+          $('#bar').width('0%');
+          $('#indicator').html('処理が開始されるのを待っています...');
+        }
+
+        // ツイート取得中
+        if (data['progression']['current_state'] == 'collecting' || data['progression']['current_state'] == 'collected') {
+          $('#bar').width('0%');
+          $('#indicator').html('ツイート取得中...');
+        }
+
+        // ツイートフィルタ中
+        if (data['progression']['current_state'] == 'filtering' || data['progression']['current_state'] == 'filtered') {
+          $('#bar').width('0%');
+          $('#indicator').html('ツイート取得中...');
+        }
+
+        // ツイート削除中
+        if (data['progression']['current_state'] == 'destroying') {
+          $('#bar').width((100 * data['progression']['destroyed_count'] / data['progression']['statuses_count'])+'%');
+          $('#indicator').html(data['progression']['destroyed_count'] + ' / ' + data['progression']['statuses_count']);
+        }
       }
-      // ツイート削除中
-      if (data['job']['current_state'] == 'processing' && data['progression']['current_state'] == 'destroying') {
-        $('#bar').width((100 * data['progression']['destroyed_count'] / data['progression']['statuses_count'])+'%');
-        $('#indicator').html(data['progression']['destroyed_count'] + ' / ' + data['progression']['statuses_count']);
-      }
-      // 完了
-      if (data['job']['current_state'] == 'confirming') {
+      else if (data['job']['current_state'] == 'confirming') {
+        // 完了
         clearInterval(KC.status.timer);
         $('#btn-abort').attr('disabled', 'disabled');
         $('#btn-abort').attr('href', 'javascript:void(0);');

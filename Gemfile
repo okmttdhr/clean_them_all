@@ -7,7 +7,6 @@ gem 'mysql2'
 ################################################################################
 gem 'newrelic_rpm'
 gem 'rails-bigint-pk'
-gem 'dotenv-rails'
 gem 'configatron'
 gem 'settingslogic'
 gem 'quiet_assets'
@@ -48,7 +47,7 @@ gem 'faml'
 gem 'browser'
 
 ################################################################################
-group :production do
+group :production, :staging do
   gem 'unicron'
   gem 'unicorn-rails'
 end
@@ -69,9 +68,8 @@ group :development, :test do
   gem 'awesome_print'
 
   gem 'web-console', '~> 2.0'
-  gem 'spring'
-  gem 'rspec-rails'
   gem 'spring-commands-rspec'
+  gem 'rspec-rails'
   gem 'rspec-its', require: 'rspec/its'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
@@ -98,4 +96,5 @@ group :development do
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
+  gem 'dotenv-rails'
 end

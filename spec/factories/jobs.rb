@@ -21,6 +21,7 @@ FactoryGirl.define do
 
     association :user
     association :parameter, factory: :job_parameter
+    association :progression, factory: :job_progression
 
     trait :processing do
       aasm_state { :processing }
@@ -36,6 +37,10 @@ FactoryGirl.define do
 
     trait :closed do
       aasm_state { :closed }
+    end
+
+    trait :with_state_completed do
+      association :progression, factory: :job_progression, aasm_state: :completed
     end
   end
 end

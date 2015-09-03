@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "job_parameters", force: :cascade do |t|
-    t.integer  "job_id",           limit: 8
     t.datetime "signedin_at",                                    null: false
     t.integer  "statuses_count",   limit: 4,                     null: false
     t.datetime "registered_at",                                  null: false
@@ -28,6 +27,15 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "finish_message",   limit: 255
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
+  end
+
+  create_table "job_progressions", force: :cascade do |t|
+    t.string   "aasm_state",    limit: 255
+    t.integer  "collect_count", limit: 4,   default: 0
+    t.integer  "filter_count",  limit: 4,   default: 0
+    t.integer  "destroy_count", limit: 4,   default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "jobs", force: :cascade do |t|

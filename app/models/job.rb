@@ -17,8 +17,9 @@
 class Job < ActiveRecord::Base
   include Publishable
 
-  has_one :parameter, class_name: 'JobParameter'
   belongs_to :user
+  has_one :parameter, class_name: 'JobParameter', foreign_key: :id
+  has_one :progression, class_name: 'JobProgression', foreign_key: :id
 
   ##############################################################################
   scope :active, -> { where(aasm_state: %i(processing confirming closing)) }
@@ -51,11 +52,5 @@ class Job < ActiveRecord::Base
 
   def inprogress?
     processing? || confirming?
-  end
-
-  ##############################################################################
-
-  def progression
-    JobProgression.find(id)
   end
 end

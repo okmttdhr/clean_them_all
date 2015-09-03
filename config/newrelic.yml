@@ -38,3 +38,4 @@ staging:
   <<: *default_settings
   monitor_mode: true
   app_name: clean_them_all (staging)
+  developer_mode: true
