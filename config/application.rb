@@ -8,11 +8,6 @@ module CleanThemAll
   class Application < Rails::Application
     config.exceptions_app = self.routes
 
-    # config.active_record.observers = [
-    #   'observer/user_registration',
-    #   'observer/user_utilization',
-    # ]
-
     config.active_record.table_name_prefix = 'clean_them_all_'
     config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = 'Tokyo'

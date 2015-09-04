@@ -7,4 +7,4 @@ set :unicorn_env, 'staging'
 set :rails_env,   'staging'
 set :app_env,     'staging'
 
-set :branch,      'preview'
+set :branch,      'staging'
