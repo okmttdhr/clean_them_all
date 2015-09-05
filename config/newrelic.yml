@@ -22,20 +22,18 @@ common: &default_settings
 
 development:
   <<: *default_settings
-  monitor_mode: true
-  app_name: clean_them_all (development)
-  developer_mode: true
+  monitor_mode: false
 
 test:
   <<: *default_settings
   monitor_mode: false
-
-production:
-  <<: *default_settings
-  monitor_mode: true
 
 staging:
   <<: *default_settings
   monitor_mode: true
   app_name: clean_them_all (staging)
   developer_mode: true
+
+production:
+  <<: *default_settings
+  monitor_mode: true

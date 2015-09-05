@@ -1,6 +1,5 @@
 set :application, 'clean_them_all'
 set :user,        'ec2-user'
-ssh_options[:keys] = '~/.ssh/id_rsa.ec2'
 set :use_sudo,    false
 
 set :scm,         :git
@@ -51,7 +50,7 @@ namespace :deploy do
 end
 
 # create database
-desc 'execute after deploy:setup'
-after 'deploy:setup' do
+desc 'execute before deploy:migrate'
+before 'deploy:migrate' do
   run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:create"
 end

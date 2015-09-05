@@ -60,6 +60,10 @@ group :development do
   gem 'capistrano-maintenance', require: 'capistrano/maintenance'
 end
 
+group :development, :staging do
+  gem 'dotenv-rails'
+end
+
 ################################################################################
 group :development, :test do
   gem 'pry-rails'
@@ -67,8 +71,9 @@ group :development, :test do
   gem 'pry-coolline'
   gem 'awesome_print'
 
-  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'web-console', '~> 2.0'
   gem 'rspec-rails'
   gem 'rspec-its', require: 'rspec/its'
   gem 'factory_girl_rails'
@@ -96,5 +101,4 @@ group :development do
   gem 'annotate', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
-  gem 'dotenv-rails'
 end
