@@ -1,9 +1,15 @@
+require 'sidekiq/web'
+require 'sidekiq-status/web'
+
 Rails.application.routes.draw do
   root to: redirect('/cleaner/getstarted')
 
   # service
-  namespace :service do
-    get :health, to: 'services#health'
+  scope '/cleaner' do
+    namespace :service do
+      get :health, to: 'services#health'
+      mount Sidekiq::Web => '/sidekiq'
+    end
   end
 
   # omniauth
