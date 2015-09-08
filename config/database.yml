@@ -15,7 +15,7 @@ test:
 staging:
   adapter: mysql2
   encoding: utf8mb4
-  database: clean_them_all_staging
+  database: kurorekishi_me_staging
   username: root
   password:
   reconnect: true

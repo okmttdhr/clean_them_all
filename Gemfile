@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 gem 'mysql2'
 
+gem 'sidekiq', '= 3.4.2'
+gem 'sidekiq-status'
+gem 'sinatra'
+
 ################################################################################
 gem 'newrelic_rpm'
 gem 'rails-bigint-pk'
