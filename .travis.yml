@@ -1,18 +1,18 @@
 language: ruby
 rvm:
-  - 2.2.3
-bundler_args: --without production --deployment --jobs=2
+- 2.2.3
+bundler_args: "--without production --deployment --jobs=2"
 cache: bundler
 sudo: false
 branches:
   only:
-    - master
+  - master
 env:
-  - DB=mysql
+- DB=mysql
 script:
-  - bundle exec rake db:drop db:create db:migrate db:seed
-  - bundle exec rake spec
+- bundle exec rake db:drop db:create db:migrate db:seed
+- bundle exec rake spec
 notifications:
   email: false
   slack:
-    secure: KiV5tCfMyDblfJrP+NHtKwwJxtUQ6E78fWuNVAmgOHdj7aN2ry2rI1ROItbVbqTZt31JFg8slsLMlonn/mPoPYipFevQ/O57ppdIUr7yIZhua18/f4Ucurs6sopNyH971i1TqFBwjAZTp4H/zQkekdDaw4aCaYwzA2NRDSf2jWU=
+    secure: EcFePORCJKIusovo9JYenApcXhdv8TEFaOai7hW1rkn9mPgyx7022+hi2Id6EC7G+9LMbG/VEV50guNkn63t5e9jA74XTM94KOio6a6aLm5U8veuUSqqWynTeJTny6jXWHW4PigDru8jf3Hr4m0xWjokrnP44tHEE16WX14lK9I=
