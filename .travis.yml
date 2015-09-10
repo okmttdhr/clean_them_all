@@ -14,3 +14,5 @@ script:
   - bundle exec rake spec
 notifications:
   email: false
+  slack:
+    secure: KiV5tCfMyDblfJrP+NHtKwwJxtUQ6E78fWuNVAmgOHdj7aN2ry2rI1ROItbVbqTZt31JFg8slsLMlonn/mPoPYipFevQ/O57ppdIUr7yIZhua18/f4Ucurs6sopNyH971i1TqFBwjAZTp4H/zQkekdDaw4aCaYwzA2NRDSf2jWU=
