@@ -7,7 +7,7 @@ class CreateJobParameters < ActiveRecord::Migration
       t.datetime   :registered_at,    null: false
 
       # options
-      t.integer    :collect_method,   null: false
+      t.string     :collect_method,   null: false
       t.text       :archive_url
       t.boolean    :protect_reply,    default: false
       t.boolean    :protect_favorite, default: false

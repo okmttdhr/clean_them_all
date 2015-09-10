@@ -5,7 +5,7 @@ class CleanersController < ApplicationController
   ############################################################################
   before_action :user_should_be_authorized,       except: [:getstarted]
   before_action :user_should_not_have_active_job, only:   [:info, :new, :create]
-  before_action :user_should_have_active_job,     except: [:getstarted, :info, :new, :create]
+  before_action :user_should_have_active_job,     except: [:getstarted, :info, :new, :create, :upload]
   before_action :active_job_should_be_inprogress, only:   [:status]
   before_action :active_job_should_be_processing, only:   [:abort]
   before_action :active_job_should_be_confirming, only:   [:confirm]
