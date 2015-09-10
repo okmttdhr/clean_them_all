@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.1)
-    aasm (4.2.0)
+    aasm (4.3.0)
     actionmailer (4.2.2)
       actionpack (= 4.2.2)
       actionview (= 4.2.2)
@@ -65,8 +65,9 @@ GEM
       thor (~> 0.19)
     browser (1.0.1)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
+    byebug (2.7.0)
+      columnize (~> 0.3)
+      debugger-linecache (~> 1.2)
     capistrano (2.15.6)
       highline
       net-scp (>= 1.0.0)
@@ -126,6 +127,7 @@ GEM
       thor (~> 0.19.1)
     database_cleaner (1.5.0)
     debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     domain_name (0.5.24)
@@ -241,7 +243,7 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-sakuracloud (1.0.1)
+    fog-sakuracloud (1.1.1)
       fog-core
       fog-json
     fog-serverlove (0.1.2)
@@ -323,7 +325,7 @@ GEM
     jquery-rails-cdn (1.0.3)
       jquery-rails
     json (1.8.3)
-    kgio (2.9.3)
+    kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     lazyload-rails (0.3.1)
@@ -382,13 +384,13 @@ GEM
     powder (0.3.0)
       thor (>= 0.11.5)
     powerpack (0.1.1)
-    pry (0.10.1)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
       slop (~> 3.4)
-    pry-byebug (3.2.0)
-      byebug (~> 5.0)
-      pry (~> 0.10)
+    pry-byebug (1.3.2)
+      byebug (~> 2.7)
+      pry (~> 0.9.12)
     pry-coolline (0.2.5)
       coolline (~> 0.5)
     pry-rails (0.3.4)
@@ -474,7 +476,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubocop (0.33.0)
+    rubocop (0.34.1)
       astrolabe (~> 1.3)
       parser (>= 2.2.2.5, < 3.0)
       powerpack (~> 0.1)
@@ -516,7 +518,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.3.2)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
@@ -532,15 +534,15 @@ GEM
     timers (4.0.4)
       hitimes
     tins (1.6.0)
-    travis (1.6.11)
+    travis (1.8.0)
       addressable (~> 2.3)
       backports
       faraday (~> 0.9)
-      faraday_middleware (~> 0.9)
+      faraday_middleware (~> 0.9, >= 0.9.1)
       gh (~> 0.13)
       highline (~> 1.6)
       launchy (~> 2.1)
-      pry (~> 0.9)
+      pry (~> 0.9, < 0.10)
       pusher-client (~> 0.4)
       typhoeus (~> 0.6, >= 0.6.8)
     travis-lint (2.0.0)
@@ -614,7 +616,7 @@ DEPENDENCIES
   jquery-rails-cdn
   lazyload-rails
   modernizr-rails
-  mysql2
+  mysql2 (~> 0.3.0)
   newrelic_rpm
   normalize-rails
   omniauth
