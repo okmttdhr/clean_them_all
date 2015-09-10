@@ -28,7 +28,7 @@ FactoryGirl.define do
     registered_at    { 3.months.ago }
 
     # options
-    collect_method   { JobParameter.collect_methods[:timeline]  }
+    collect_method   { 'timeline' }
     archive_url      { Forgery(:basic).text }
     protect_reply    { Forgery(:basic).boolean }
     protect_favorite { Forgery(:basic).boolean }

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "signedin_at",                                    null: false
     t.integer  "statuses_count",   limit: 4,                     null: false
     t.datetime "registered_at",                                  null: false
-    t.integer  "collect_method",   limit: 4,                     null: false
+    t.string   "collect_method",   limit: 255,                   null: false
     t.text     "archive_url",      limit: 65535
     t.boolean  "protect_reply",    limit: 1,     default: false
     t.boolean  "protect_favorite", limit: 1,     default: false
