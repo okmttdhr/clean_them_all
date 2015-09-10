@@ -435,6 +435,10 @@ GEM
     rainbow (2.0.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    rambulance (0.3.1)
+      actionpack
+      activesupport
+      railties
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -624,6 +628,7 @@ DEPENDENCIES
   rails (= 4.2.2)
   rails-bigint-pk
   rails-observers
+  rambulance
   rb-fsevent
   rspec-its
   rspec-rails

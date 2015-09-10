@@ -13,6 +13,7 @@ gem 'newrelic_rpm'
 gem 'rails-bigint-pk'
 gem 'configatron'
 gem 'settingslogic'
+gem 'rambulance'
 gem 'quiet_assets'
 gem 'asset_sync'
 

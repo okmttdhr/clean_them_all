@@ -42,9 +42,4 @@ Rails.application.routes.draw do
     get :privacy, to: 'roots#privacy', as: 'privacy'
     get :contact, to: 'roots#contact', as: 'contact'
   end
-
-  # errors
-  ActionDispatch::PublicExceptions.new('public/')
-  get '/404', to: 'errors#render_404'
-  get '/500', to: 'errors#render_500'
 end
