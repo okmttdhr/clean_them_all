@@ -2,7 +2,7 @@
 #
 # Table name: clean_them_all_job_parameters
 #
-#  id               :integer          not null, primary key
+#  id               :integer          default(0), not null, primary key
 #  signedin_at      :datetime         not null
 #  statuses_count   :integer          not null
 #  registered_at    :datetime         not null

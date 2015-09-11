@@ -1,6 +1,7 @@
 class CreateJobParameters < ActiveRecord::Migration
   def change
-    create_table :job_parameters do |t|
+    create_table :job_parameters, id: false do |t|
+      t.integer :id, limit: 8
       # extras
       t.datetime   :signedin_at,      null: false
       t.integer    :statuses_count,   null: false
@@ -18,5 +19,6 @@ class CreateJobParameters < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    execute "ALTER TABLE #{JobParameter.table_name} ADD PRIMARY KEY (id)"
   end
 end

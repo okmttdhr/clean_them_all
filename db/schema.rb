@@ -30,13 +30,15 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "job_progressions", force: :cascade do |t|
-    t.string   "aasm_state",    limit: 255
-    t.integer  "collect_count", limit: 4,   default: 0
-    t.integer  "filter_count",  limit: 4,   default: 0
-    t.integer  "destroy_count", limit: 4,   default: 0
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "aasm_state",    limit: 30,             null: false
+    t.integer  "collect_count", limit: 4,  default: 0
+    t.integer  "filter_count",  limit: 4,  default: 0
+    t.integer  "destroy_count", limit: 4,  default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
+
+  add_index "job_progressions", ["aasm_state"], name: "index_clean_them_all_job_progressions_on_aasm_state", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "user_id",    limit: 8,  null: false
