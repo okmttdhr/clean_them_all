@@ -77,6 +77,8 @@ group :development, :test do
   gem 'poltergeist'
   gem 'factory_girl'
   gem 'factory_girl_rails'
+  gem 'webmock'
+  gem 'vcr'
   gem 'database_cleaner'
   gem 'forgery'
   gem 'timecop'
