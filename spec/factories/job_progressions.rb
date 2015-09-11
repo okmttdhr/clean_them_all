@@ -5,5 +5,13 @@ FactoryGirl.define do
     collect_count { Forgery(:basic).number }
     filter_count  { Forgery(:basic).number }
     destroy_count { Forgery(:basic).number }
+
+    trait :collecting do
+      aasm_state { :collecting }
+    end
+
+    trait :destroying do
+      aasm_state { :destroying }
+    end
   end
 end

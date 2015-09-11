@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # service
   scope '/cleaner' do
     namespace :service do
-      get :health, to: 'services#health'
+      namespace :health do
+        get :visible_messages
+        get :processing_jobs
+        get :collecting_jobs
+        get :destroying_jobs
+      end
       mount Sidekiq::Web => '/sidekiq'
     end
   end
