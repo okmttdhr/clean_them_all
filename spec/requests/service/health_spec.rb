@@ -66,4 +66,26 @@ RSpec.describe '/cleaner/service/health', type: :request do
       end
     end
   end
+
+  describe 'GET /verify_official_account' do
+    let(:official_account) { double('official_account', suspended?: false) }
+
+    before do
+      allow_any_instance_of(Doctorable).to receive(:official_account).and_return(official_account)
+    end
+
+    it 'returns a 200 status code' do
+      get '/cleaner/service/health/verify_official_account'
+      expect(response).to have_http_status 200
+    end
+
+    context 'when official account is suspended' do
+      let(:official_account) { double('official_account', suspended?: true) }
+
+      it 'returns a 503 status code' do
+        get '/cleaner/service/health/verify_official_account'
+        expect(response).to have_http_status 503
+      end
+    end
+  end
 end

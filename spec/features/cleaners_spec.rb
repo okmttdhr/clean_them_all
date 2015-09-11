@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'CleanersController', type: :feature do
+feature 'Cleaners', type: :feature do
   background do
     @user = double(:user, id: 14186100, nickname: 'cohakim')
   end

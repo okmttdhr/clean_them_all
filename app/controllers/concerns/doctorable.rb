@@ -14,4 +14,17 @@ module Doctorable
       ],
     }).datapoints.first.try(:average) || 0
   end
+
+  def official_account
+    twitter_client.user
+  end
+
+  def twitter_client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = configatron.twitter.consumer_key
+      config.consumer_secret     = configatron.twitter.consumer_secret
+      config.access_token        = configatron.twitter.access_token
+      config.access_token_secret = configatron.twitter.access_token_secret
+    end
+  end
 end
