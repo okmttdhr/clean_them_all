@@ -662,6 +662,7 @@ DEPENDENCIES
   omniauth-twitter
   poltergeist
   powder
+  pry
   pry-byebug
   pry-coolline
   pry-rails
