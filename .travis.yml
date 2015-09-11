@@ -11,7 +11,7 @@ env:
 - DB=mysql
 script:
 - bundle exec rake db:drop db:create db:migrate db:seed
-- bundle exec rake spec
+- bundle exec rake spec SPEC_OPTS="--format documentation"
 notifications:
   email: false
   slack:
