@@ -14,7 +14,7 @@ describe ServerStatus, type: :model do
     end
 
     context '削除処理中のジョブがあるとき' do
-      let!(:job) { FactoryGirl.create(:job, :processing, updated_at: updated_at) }
+      let!(:job) { create(:job, :processing, updated_at: updated_at) }
 
       context '最遅処理時間:1分以内の場合' do
         let(:updated_at) { 30.seconds.ago }
