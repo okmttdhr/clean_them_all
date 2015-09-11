@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get :processing_jobs
         get :collecting_jobs
         get :destroying_jobs
+        get :verify_official_account
       end
       mount Sidekiq::Web => '/sidekiq'
     end

@@ -24,4 +24,10 @@ class Service::HealthController < ApplicationController
     status_code = (count < 20) ? 200 : 503
     render json: count, status: status_code
   end
+
+  def verify_official_account
+    suspended = official_account.suspended?
+    status_code = !suspended ? 200 : 503
+    render json: !suspended, status: status_code
+  end
 end
