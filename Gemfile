@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
 ################################################################################
 gem 'rails', '4.2.4'
@@ -65,45 +66,48 @@ group :development do
   gem 'capistrano-maintenance', require: 'capistrano/maintenance'
 end
 
-group :development, :staging do
-  gem 'dotenv-rails'
-end
-
 ################################################################################
 group :development, :test do
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-coolline'
-  gem 'awesome_print'
-
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'web-console', '~> 2.0'
+  gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-its', require: 'rspec/its'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'forgery'
+  gem 'timecop'
+  gem 'simplecov', require: false
+  gem 'fuubar'
+  gem 'coveralls', require: false
+  gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'rb-fsevent'
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
-  gem 'forgery'
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'timecop'
-  gem 'simplecov', require: false
-  gem 'fuubar'
-  gem 'travis'
-  gem 'travis-lint'
-  gem 'coveralls', require: false
-  gem 'rubocop', require: false
+
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-coolline'
 end
 
 ################################################################################
 group :development do
+  gem 'dotenv-rails'
+  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'awesome_print'
+
   gem 'annotate', require: false
+  gem 'rubocop', require: false
   gem 'foreman', require: false
   gem 'powder', require: false
+  gem 'travis'
+  gem 'travis-lint'
 end
