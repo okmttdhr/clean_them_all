@@ -68,6 +68,15 @@ group :development do
 end
 
 ################################################################################
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+  gem 'database_cleaner'
+  gem 'simplecov', require: false
+  gem 'fuubar'
+  gem 'coveralls', require: false
+end
+
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
@@ -77,14 +86,9 @@ group :development, :test do
   gem 'poltergeist'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'webmock'
-  gem 'vcr'
-  gem 'database_cleaner'
   gem 'forgery'
   gem 'timecop'
-  gem 'simplecov', require: false
-  gem 'fuubar'
-  gem 'coveralls', require: false
+
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'guard'
@@ -94,6 +98,7 @@ group :development, :test do
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
 
+  gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-coolline'
