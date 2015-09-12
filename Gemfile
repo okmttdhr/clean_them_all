@@ -10,7 +10,6 @@ gem 'sidekiq-status'
 gem 'sinatra'
 
 ################################################################################
-gem 'newrelic_rpm'
 gem 'rails-bigint-pk'
 gem 'configatron'
 gem 'settingslogic'
@@ -57,6 +56,8 @@ gem 'browser'
 group :production, :staging do
   gem 'unicron'
   gem 'unicorn-rails'
+  gem 'newrelic_rpm'
+  gem 'remote_syslog'
 end
 
 ################################################################################
