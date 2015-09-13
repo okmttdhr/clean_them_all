@@ -14,6 +14,9 @@ Rails.application.routes.draw do
         get :destroying_jobs
         get :verify_official_account
       end
+      Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+        username == ENV['SIDEKIQ_USERNAME'] && password == ENV['SIDEKIQ_PASSWORD']
+      end unless Rails.env.development?
       mount Sidekiq::Web => '/sidekiq'
     end
   end
