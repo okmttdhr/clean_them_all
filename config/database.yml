@@ -19,7 +19,7 @@ staging:
   username: root
   password:
   reconnect: true
-  host: localhost
+  host: staging.kurorekishi.me
   pool: 1
 
 production:
