@@ -29,10 +29,12 @@ class CleanStatusDecorator < Draper::Decorator
     when :completed
       '正常に完了しました'
     when :failed
-      'エラーが発生し強制終了されました'
+      'エラーにより強制終了されました'
     when :expired
       '期間内に完了しなかったため、強制終了されました'
-    else
+    when :aborted
+      'ユーザによりキャンセルされました'
+    else # 処理中のステータスの場合
       'ユーザによりキャンセルされました'
     end
   end
