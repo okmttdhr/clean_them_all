@@ -55,10 +55,15 @@ describe CleanStatusDecorator, type: :decorator do
 
     context 'when progression state is failed' do
       let(:progression) { double(:progression, current_state: :failed) }
-      it { is_expected.to eq 'エラーが発生し強制終了されました' }
+      it { is_expected.to eq 'エラーにより強制終了されました' }
     end
 
-    %i(collecting destroying aborted).each do |state|
+    context 'when progression state is expired' do
+      let(:progression) { double(:progression, current_state: :expired) }
+      it { is_expected.to eq '期間内に完了しなかったため、強制終了されました' }
+    end
+
+    [*JobProgression::PROCESSING_STATES, :aborted].each do |state|
       context "when progression state is #{state}" do
         let(:progression) { double(:progression, current_state: state) }
         it { is_expected.to eq 'ユーザによりキャンセルされました' }
