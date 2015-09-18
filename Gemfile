@@ -107,7 +107,6 @@ end
 
 ################################################################################
 group :development do
-  gem 'dotenv-rails'
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'binding_of_caller'
