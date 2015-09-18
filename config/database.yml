@@ -18,8 +18,8 @@ staging:
   database: kurorekishi_me_staging
   username: root
   password:
-  reconnect: true
   host: staging.kurorekishi.me
+  reconnect: true
   pool: 1
 
 production:
@@ -28,6 +28,6 @@ production:
   database: kurorekishi_me
   username: kurorekishi_me
   password: kurorekishi_me
+  host: kurorekishi-me.c3worgholwhq.us-east-1.rds.amazonaws.com
   reconnect: true
-  host: clean-them-all.c2rcsjiokdyj.ap-northeast-1.rds.amazonaws.com
   pool: 1

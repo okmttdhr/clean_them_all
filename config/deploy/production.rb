@@ -1,10 +1,12 @@
-role :web,   'kurorekishi.me'
-role :app,   'kurorekishi.me'
-role :db,    'kurorekishi.me', primary: true
+role :web,   'web01.kurorekishi.me'
+role :app,   'web01.kurorekishi.me'
+role :db,    'web01.kurorekishi.me', primary: true
 
 set :deploy_env,  'production'
 set :unicorn_env, 'production'
 set :rails_env,   'production'
 set :app_env,     'production'
 
+set :repository,  'https://github.com/cohakim/clean_them_all.git'
 set :branch,      'master'
+set :deploy_via,  :remote_cache
