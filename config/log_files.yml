@@ -1,0 +1,5 @@
+files:
+  - log/*.log
+destination:
+  host: logs3.papertrailapp.com
+  port: 29924
