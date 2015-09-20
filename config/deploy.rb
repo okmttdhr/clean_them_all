@@ -8,7 +8,7 @@ set :deploy_via,  :copy
 set :deploy_to,   '/var/www/app/clean_them_all'
 
 # for capistrano-ext
-set :stages, ['production', 'staging']
+set :stages, ['production', 'hotfix', 'staging']
 set :default_stage, 'staging'
 require 'capistrano/ext/multistage'
 
