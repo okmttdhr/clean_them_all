@@ -26,7 +26,7 @@ RSpec.describe '/cleaner/service/health', type: :request do
     end
 
     context 'when message queue limit exceeded' do
-      let!(:jobs) { create_list :job, 20, :processing }
+      let!(:jobs) { create_list :job, 80, :processing }
 
       it 'returns a 503 status code' do
         get '/cleaner/service/health/processing_jobs'
@@ -58,7 +58,7 @@ RSpec.describe '/cleaner/service/health', type: :request do
     end
 
     context 'when message queue limit exceeded' do
-      let!(:jobs) { create_list :job_progression, 20, :destroying }
+      let!(:jobs) { create_list :job_progression, 80, :destroying }
 
       it 'returns a 503 status code' do
         get '/cleaner/service/health/destroying_jobs'

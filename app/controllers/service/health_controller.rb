@@ -9,7 +9,7 @@ class Service::HealthController < ApplicationController
 
   def processing_jobs
     count = Job.processing.count
-    status_code = (count < 20) ? 200 : 503
+    status_code = (count < 80) ? 200 : 503
     render json: count, status: status_code
   end
 
@@ -21,7 +21,7 @@ class Service::HealthController < ApplicationController
 
   def destroying_jobs
     count = JobProgression.destroying.count
-    status_code = (count < 20) ? 200 : 503
+    status_code = (count < 80) ? 200 : 503
     render json: count, status: status_code
   end
 
