@@ -1,3 +1,6 @@
+- content_for :page_scripts do
+  = render :partial => 'application/adsense/page_level_ads'
+
 - content_for :scripts do
   = render :partial => 'cleaners/status/modal'
   = render :partial => 'cleaners/scripts/status'
@@ -16,7 +19,7 @@
       %hr.no-margin
       .wrapped-content.text-center
         - if browser.mobile?
-          = render :partial => 'application/adsense/m300x250_03'
+          = render :partial => 'application/adsense/m336x280_03'
         - else
           = render :partial => 'application/adsense/d336x280_03'
   .primary-button.text-center(style='margin:8px')
