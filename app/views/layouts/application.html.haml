@@ -15,6 +15,7 @@
     = render :partial => 'analytics'
     :javascript
         var KC = {};
+    = yield :page_scripts
   %body
     #container.remodal-bg
       = render partial: 'layouts/sidebar'
