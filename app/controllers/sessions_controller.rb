@@ -60,7 +60,7 @@ class SessionsController < ApplicationController
   end
 
   def statuses_count(auth)
-    auth[:extra][:raw_info][:statuses_count]
+    auth[:extra][:raw_info][:statuses_count].presence || 3200
   rescue
     3200
   end
