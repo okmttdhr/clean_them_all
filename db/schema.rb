@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 5) do
 
   create_table "job_archives", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
+    t.integer  "user_id",    limit: 8
     t.string   "aasm_state", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
