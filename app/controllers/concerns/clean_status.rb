@@ -18,8 +18,8 @@ module CleanStatus
       },
       parameters: {
         name:             current_user.name,
-        posted_from:      current_user.active_job.parameter.collect_from.try(:to_date),
-        posted_to:        current_user.active_job.parameter.collect_to.try(:to_date),
+        posted_from:      current_user.active_job.parameter.collect_from,
+        posted_to:        current_user.active_job.parameter.collect_to,
         protect_reply:    current_user.active_job.parameter.protect_reply?,
         protect_favorite: current_user.active_job.parameter.protect_favorite?,
       },
