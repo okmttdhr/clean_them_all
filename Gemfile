@@ -65,6 +65,7 @@ end
 group :development do
   gem 'capistrano', '~> 2.0'
   gem 'capistrano-ext'
+  gem 'capistrano-deploy-tagger'
   gem 'capistrano-unicorn', require: false
   gem 'capistrano-maintenance', require: 'capistrano/maintenance'
 end
