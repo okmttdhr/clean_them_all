@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
+ActiveRecord::Schema.define(version: 5) do
+
+  create_table "job_archives", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "aasm_state", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "job_parameters", force: :cascade do |t|
     t.datetime "signedin_at",                                    null: false
@@ -19,8 +26,8 @@ ActiveRecord::Schema.define(version: 4) do
     t.datetime "registered_at",                                  null: false
     t.string   "collect_method",   limit: 255,                   null: false
     t.text     "archive_url",      limit: 65535
-    t.boolean  "protect_reply",    limit: 1,     default: false
-    t.boolean  "protect_favorite", limit: 1,     default: false
+    t.boolean  "protect_reply",                  default: false
+    t.boolean  "protect_favorite",               default: false
     t.date     "collect_from"
     t.date     "collect_to"
     t.string   "start_message",    limit: 255
