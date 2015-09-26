@@ -64,10 +64,10 @@ end
 ################################################################################
 group :development do
   gem 'capistrano', '~> 2.0'
-  gem 'capistrano-ext'
-  gem 'capistrano-deploy-tagger'
+  gem 'capistrano-ext', require: false
+  gem 'capistrano-deploy-tagger',  require: false
   gem 'capistrano-unicorn', require: false
-  gem 'capistrano-maintenance', require: 'capistrano/maintenance'
+  gem 'capistrano-maintenance', require: false
 end
 
 ################################################################################
