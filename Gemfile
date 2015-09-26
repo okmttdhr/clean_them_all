@@ -112,6 +112,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'
+  gem 'dotenv-rails'
 
   gem 'annotate', require: false
   gem 'rubocop', require: false
