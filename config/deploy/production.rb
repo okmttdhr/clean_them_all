@@ -12,6 +12,8 @@ set :branch,      'master'
 set :deploy_via,  :remote_cache
 
 require 'capistrano/deploy/tagger'
-set :latest_deploy_tag, 'release'
+set :latest_deploy_tag, 'inproduction'
+set :latest_deploy_timestamp_tag_prefix, 'release'
+set :latest_deploy_timestamp_tag_format, "%Y%m%d-%H%M%S"
 set :update_deploy_tags, true
 set :update_deploy_timestamp_tags, true
