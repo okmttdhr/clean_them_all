@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 ################################################################################
-gem 'rails', '4.2.4'
-gem 'mysql2', '~> 0.3.0'
+gem 'rails', '4.2.5'
+gem 'mysql2'
 
 gem 'sidekiq', '= 3.4.2'
 gem 'sidekiq-status'
