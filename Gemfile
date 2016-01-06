@@ -75,7 +75,6 @@ group :test do
   gem 'webmock'
   gem 'vcr'
   gem 'database_cleaner'
-  gem 'simplecov', require: false
   gem 'fuubar'
   gem 'coveralls', require: false
 end

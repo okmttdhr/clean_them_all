@@ -11,15 +11,6 @@ require 'capybara/poltergeist'
 require 'draper/test/rspec_integration'
 
 ################################################################################
-require 'simplecov'
-
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter,
-]
-SimpleCov.start 'rails'
-
-################################################################################
 Capybara.javascript_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
