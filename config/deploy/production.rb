@@ -1,6 +1,16 @@
-role :web,   'web01.kurorekishi.me'
-role :app,   'web01.kurorekishi.me'
-role :db,    'web01.kurorekishi.me', primary: true
+region = ENV['AWS_REGION']
+filter_hostname   = "'Name=tag:Name,Values=web*'"
+filter_production = "'Name=tag:Environment,Values=production'"
+filter_running    = "'Name=instance-state-name,Values=running'"
+filters           = [filter_production, filter_running, filter_hostname].join(' ')
+query             = "'sort_by(Reservations[].Instances[].{Tags:Tags[?Key==`Name`].Value|[0]},&Tags)'"
+hosts = %x( aws ec2 describe-instances --region=#{region} --filters #{filters} --query #{query} --output text ).split("\n")
+
+hosts.each do |hostname|
+  role :web, "#{hostname}.kurorekishi.me"
+end
+role :app,   "#{hosts.first}.kurorekishi.me"
+role :db,    "#{hosts.first}.kurorekishi.me", primary: true
 
 set :deploy_env,  'production'
 set :unicorn_env, 'production'
