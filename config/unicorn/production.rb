@@ -1,6 +1,6 @@
 APP_ROOT = File.expand_path(File.dirname(File.dirname(File.dirname(__FILE__))))
 
-worker_processes 6
+worker_processes 3
 listen APP_ROOT + '/tmp/sockets/unicorn.sock', backlog: 64
 timeout 60
 
