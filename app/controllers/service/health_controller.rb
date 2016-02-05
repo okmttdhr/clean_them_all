@@ -29,5 +29,7 @@ class Service::HealthController < ApplicationController
     suspended = official_account.suspended?
     status_code = !suspended ? 200 : 503
     render json: !suspended, status: status_code
+  rescue => ex
+    render json: ex.message, status: 503
   end
 end
