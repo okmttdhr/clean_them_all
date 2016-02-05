@@ -19,7 +19,7 @@ class CreateJobProgressions < ActiveRecord::Migration
           UPDATE
             clean_them_all_jobs
           SET
-            aasm_state = 'comfirming'
+            aasm_state = 'confirming'
           WHERE
             id = NEW.id
            AND
