@@ -11,5 +11,22 @@ class CreateJobProgressions < ActiveRecord::Migration
     end
     execute "ALTER TABLE #{JobProgression.table_name} ADD PRIMARY KEY (id)"
     add_index :job_progressions, :aasm_state
+
+    execute <<-SQL
+      CREATE TRIGGER sync_progression AFTER UPDATE ON clean_them_all_job_progressions FOR EACH ROW
+      BEGIN
+        IF NEW.aasm_state = 'completed' OR NEW.aasm_state = 'failed' OR NEW.aasm_state = 'aborted' THEN
+          UPDATE
+            clean_them_all_jobs
+          SET
+            aasm_state = 'comfirming'
+          WHERE
+            id = NEW.id
+           AND
+            aasm_state = 'processing'
+          ;
+        END IF;
+      END;
+    SQL
   end
 end
