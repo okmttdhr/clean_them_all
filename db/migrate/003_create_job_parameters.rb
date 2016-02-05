@@ -14,8 +14,8 @@ class CreateJobParameters < ActiveRecord::Migration
       t.boolean    :protect_favorite, default: false
       t.date       :collect_from
       t.date       :collect_to
-      t.string     :start_message
-      t.string     :finish_message
+      t.text       :start_message
+      t.text       :finish_message
 
       t.timestamps null: false
     end

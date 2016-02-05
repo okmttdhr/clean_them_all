@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.datetime "updated_at",                           null: false
   end
 
-  add_index "job_progressions", ["aasm_state"], name: "index_clean_them_all_job_progressions_on_aasm_state", using: :btree
+  add_index "job_progressions", ["aasm_state"], name: "index_job_progressions_on_aasm_state", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "user_id",    limit: 8,  null: false
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 5) do
     t.datetime "updated_at",            null: false
   end
 
-  add_index "jobs", ["aasm_state"], name: "index_clean_them_all_jobs_on_aasm_state", using: :btree
-  add_index "jobs", ["user_id"], name: "index_clean_them_all_jobs_on_user_id", using: :btree
+  add_index "jobs", ["aasm_state"], name: "index_jobs_on_aasm_state", using: :btree
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "token",      limit: 255, null: false

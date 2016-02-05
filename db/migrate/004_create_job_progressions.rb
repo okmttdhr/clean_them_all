@@ -13,11 +13,11 @@ class CreateJobProgressions < ActiveRecord::Migration
     add_index :job_progressions, :aasm_state
 
     execute <<-SQL
-      CREATE TRIGGER sync_progression AFTER UPDATE ON clean_them_all_job_progressions FOR EACH ROW
+      CREATE TRIGGER sync_progression AFTER UPDATE ON job_progressions FOR EACH ROW
       BEGIN
         IF NEW.aasm_state = 'completed' OR NEW.aasm_state = 'failed' OR NEW.aasm_state = 'aborted' THEN
           UPDATE
-            clean_them_all_jobs
+            jobs
           SET
             aasm_state = 'confirming'
           WHERE
