@@ -11,8 +11,6 @@ class CleanersController < ApplicationController
   before_action :active_job_should_be_confirming, only:   [:confirm]
   before_action :active_job_should_be_closing,    only:   [:result, :destroy]
 
-  before_action :sync_progression, only: :status
-
   ############################################################################
 
   def getstarted
@@ -97,17 +95,6 @@ class CleanersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to signout_path }
-    end
-  end
-
-
-  protected
-
-  def sync_progression
-    return unless current_user.active_job.may_finish?
-    # FIXME: ましな同期の方法を考える
-    if JobProgression::FINISH_STATES.include? current_user.active_job.progression.aasm.current_state
-      current_user.active_job.finish!
     end
   end
 
