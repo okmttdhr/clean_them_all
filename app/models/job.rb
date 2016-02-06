@@ -53,11 +53,4 @@ class Job < ActiveRecord::Base
   def inprogress?
     processing? || confirming?
   end
-
-  def cleanup!
-    ActiveRecord::Base.transaction do
-      JobArchive.create! attributes
-      delete
-    end
-  end
 end

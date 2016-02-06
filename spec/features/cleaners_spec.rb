@@ -155,11 +155,9 @@ feature 'Cleaners', type: :feature do
     scenario '削除ジョブ完了' do
       expect {
         click_on 'DONE'
-      }.to change {
-        Job.where(id: active_job.id).count
-      }.from(1).to(0).and change {
-        JobArchive.where(id: active_job.id).count
-      }.from(0).to(1)
+      }.to change{
+        active_job.reload.aasm.current_state
+      }.from(:closing).to(:closed)
       expect(current_path).to eq getstarted_cleaner_path
     end
   end
