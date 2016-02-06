@@ -91,7 +91,6 @@ class CleanersController < ApplicationController
   def destroy
     job = current_user.active_job
     job.close!
-    job.cleanup!
 
     respond_to do |format|
       format.html { redirect_to signout_path }

@@ -55,21 +55,4 @@ describe Job, type: :model do
       end
     end
   end
-
-  describe '#cleanup!' do
-    subject { job.cleanup! }
-    let!(:job) { create :job }
-
-    specify { expect { subject }.to change(Job, :count).from(1).to(0) }
-    specify { expect { subject }.to change(JobArchive, :count).by(1) }
-
-    context 'when cleanup failure' do
-      before do
-        allow(job).to receive(:delete).and_raise
-      end
-
-      specify { expect { subject rescue nil }.not_to change(Job, :count) }
-      specify { expect { subject rescue nil }.not_to change(JobArchive, :count) }
-    end
-  end
 end
