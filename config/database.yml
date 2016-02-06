@@ -18,7 +18,7 @@ staging:
   database: clean_them_all_staging
   username: root
   password:
-  host: staging.kurorekishi.me
+  host: 127.0.0.1
   reconnect: true
   pool: 1
 
