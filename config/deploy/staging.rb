@@ -7,10 +7,10 @@ query        = "'Reservations[].Instances[].[PrivateIpAddress]'"
 hosts        = %x( aws ec2 describe-instances --region=#{region} --filters #{filters} --query #{query} --output text ).split("\n")
 
 hosts.each do |host|
-  role :web, "manage.kurorekishi.me/#{host}"
-  role :app, "manage.kurorekishi.me/#{host}"
+  role :web, "#{host}"
+  role :app, "#{host}"
 end
-role :db,    "manage.kurorekishi.me/#{hosts.first}", primary: true
+role :db,    "#{hosts.first}", primary: true
 
 set :deploy_env,  'staging'
 set :unicorn_env, 'staging'
