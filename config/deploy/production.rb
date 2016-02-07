@@ -1,16 +1,16 @@
-region = ENV['AWS_REGION']
-filter_hostname   = "'Name=tag:Name,Values=web*'"
-filter_production = "'Name=tag:Environment,Values=production'"
-filter_running    = "'Name=instance-state-name,Values=running'"
-filters           = [filter_production, filter_running, filter_hostname].join(' ')
-query             = "'sort_by(Reservations[].Instances[].{Tags:Tags[?Key==`Name`].Value|[0]},&Tags)'"
-hosts = %x( aws ec2 describe-instances --region=#{region} --filters #{filters} --query #{query} --output text ).split("\n")
+region       = ENV['AWS_REGION']
+filter_stage = "'Name=tag:Stage,Values=production'"
+filter_role  = "'Name=tag:Role,Values=*web*'"
+filter_state = "'Name=instance-state-name,Values=running'"
+filters      = [filter_stage, filter_role, filter_state].join(' ')
+query        = "'Reservations[].Instances[].[PrivateIpAddress]'"
+hosts        = %x( aws ec2 describe-instances --region=#{region} --filters #{filters} --query #{query} --output text ).split("\n")
 
-hosts.each do |hostname|
-  role :web, "#{hostname}.kurorekishi.me"
+hosts.each do |host|
+  role :web, "manage.kurorekishi.me/#{host}"
+  role :app, "manage.kurorekishi.me/#{host}"
 end
-role :app,   "#{hosts.first}.kurorekishi.me"
-role :db,    "#{hosts.first}.kurorekishi.me", primary: true
+role :db,    "manage.kurorekishi.me/#{hosts.first}", primary: true
 
 set :deploy_env,  'production'
 set :unicorn_env, 'production'
