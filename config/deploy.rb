@@ -7,6 +7,9 @@ set :repository,  '.'
 set :deploy_via,  :copy
 set :deploy_to,   '/var/www/app/clean_them_all'
 
+# gateway
+set :gateway, ENV['DEFAULT_GATEWAY']
+
 # for capistrano-ext
 set :stages, ['production', 'hotfix', 'staging']
 set :default_stage, 'staging'
