@@ -5,7 +5,7 @@ ruby '2.3.0'
 gem 'rails', '4.2.5.1'
 gem 'mysql2'
 
-gem 'sidekiq', '= 3.4.2'
+gem 'sidekiq'
 gem 'sidekiq-status'
 gem 'sinatra'
 
