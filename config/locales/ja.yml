@@ -8,6 +8,12 @@ ja:
     boolean:
       true_value:  Yes
       false_value: No
+  date:
+    formats:
+      default: "%Y/%m/%d"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
   datetime:
     distance_in_words:
       about_x_hours:

@@ -51,4 +51,7 @@ Rails.application.routes.draw do
     get :privacy, to: 'roots#privacy', as: 'privacy'
     get :contact, to: 'roots#contact', as: 'contact'
   end
+
+  # history
+  get '/dark-history/:id', to: 'histories#show', as: 'dark_history'
 end
