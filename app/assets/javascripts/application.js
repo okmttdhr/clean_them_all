@@ -12,4 +12,5 @@
 //
 //= require jquery_ujs
 //= require modernizr
+//= require rails-timeago
 //= require_tree .

@@ -1,0 +1,18 @@
+#content.blog.scale-up.bg-dark
+  #posts
+    #timeline
+      - @timeline.each_with_index do |status, index|
+        - if index.zero?
+          .wrapped-ad.text-center
+            = render :partial => 'application/adsense/m336x280_04'
+        = render partial: 'histories/status', locals: { status: status }
+        - if @timeline.count >= 8 && index == (@timeline.count / 2).to_i
+          .wrapped-ad.text-center
+            = render :partial => 'application/adsense/m336x280_04'
+  .pagination.text-center
+    - prev_page = params[:page].to_i - 1
+    - next_page = params[:page].to_i + 1
+    = link_to_if (prev_page >= 1), 'prev', dark_history_path(page: prev_page), class: 'button radius' do
+      = link_to 'prev', 'javascript:void(0);', class: 'button radius'
+    = link_to_if (@timeline.count == DarkHistory::PER_PAGE), 'next', dark_history_path(page: next_page), class: 'button radius' do
+      = link_to 'next', 'javascript:void(0);', class: 'button radius '

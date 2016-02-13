@@ -160,7 +160,6 @@
     font-size: 0.875rem
     color: #999999
 
-
 #status
   .format-aside
     margin: 10px 7px
@@ -218,3 +217,62 @@
   #follow
     .format-aside
       border-top: 5px solid #8cc474
+
+#timeline
+  .format-aside
+    margin: 3px
+    border-left: 1px solid rgba(0, 0, 0, 0.1)
+    @include border-radius(3px)
+    @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1),  0 1px 0 rgba(0, 0, 0, 0.1))
+  .wrapped-content
+    padding: 15px 10px 15px 10px
+  .wrapped-ad
+    padding: 0
+    margin-top: 2px
+    margin-bottom: -7px
+  .profile-image
+    display: inline-block
+    img
+      width: 48px
+      height: 48px
+      @include border-radius(6px)
+  ul.profile
+    display: inline-block
+    margin: 0
+    margin-left: 5px
+    padding: 0
+    vertical-align: top
+    li
+      margin: 0
+      font-size: 13px
+      list-style: none
+      line-height: 1.4
+  .name
+    a
+      color: #404040
+      font-weight: bold
+  .nickname
+    a
+      color: #b4b4b4
+  .text
+    margin: 0px 0 5px
+  .time
+    a
+      color: #b4b4b4
+      font-size: 13px
+  p.share-widget
+    margin: 0
+    padding: 0
+    margin-top: -3px
+    padding-right: 5px
+    font-size: 20px
+    a
+      margin: 0
+      margin-left: 8px
+  .empty-logo
+    font-size: 50px
+    font-weight: bold
+    color: #ddd
+  .empty-text
+    color: #999
+    margin-bottom: 20px

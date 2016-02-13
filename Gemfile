@@ -49,6 +49,7 @@ gem 'compass-rails', '>= 1.1.7'
 gem 'bourbon'
 gem 'normalize-rails'
 gem 'google-webfonts-rails'
+gem 'rails-timeago'
 
 gem 'faml'
 gem 'browser'

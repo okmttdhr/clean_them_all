@@ -23,6 +23,7 @@ class Job < ActiveRecord::Base
 
   ##############################################################################
   scope :active, -> { where(aasm_state: %i(processing confirming closing)) }
+  scope :histories, -> { where(aasm_state: :closed).where(arel_table[:created_at].gt 1.day.ago) }
 
   ##############################################################################
   include AASM

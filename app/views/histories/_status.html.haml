@@ -1,0 +1,36 @@
+- if status.retweeted_status?
+  - status = status.retweeted_status
+- else
+  - status = status
+
+%article.post.format-aside
+  - if status.retweeted_status?
+    %p.icon-bg.icon-retweet
+  .wrapped-content.status
+    .profile-image
+      %a{ href: status.user.url.to_s }
+        = image_tag status.user.profile_image_url
+    %ul.profile
+      %li.name
+        %a{ href: status.user.url.to_s }
+          != status.user.name
+      %li.nickname
+        %a{ href: status.user.url.to_s }
+          = "@#{status.user.screen_name}"
+    .align-right
+      .time
+        %a{ href: status.url.to_s }
+          = timeago_tag status.created_at
+    .clearfix
+    %p.text
+      != text_decorated_with_entity(status)
+    .time
+      %a{ href: status.url.to_s }
+        - if status.retweeted_status?
+          %i.icon-retweet.bg-dark
+          Retweeted at
+        - else
+          %i.icon-edit.bg-dark
+          Posted at
+        = status.created_at.getlocal.to_s :db
+  .clear-fix
