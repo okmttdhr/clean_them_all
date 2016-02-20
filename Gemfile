@@ -45,7 +45,7 @@ gem 'jquery-rails-cdn'
 gem 'lazyload-rails'
 gem 'modernizr-rails'
 
-gem 'compass-rails', '>= 1.1.7'
+gem 'compass-rails'
 gem 'bourbon'
 gem 'normalize-rails'
 gem 'google-webfonts-rails'

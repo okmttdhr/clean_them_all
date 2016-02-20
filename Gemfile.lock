@@ -49,12 +49,12 @@ GEM
       unf
     ast (2.2.0)
     awesome_print (1.6.1)
-    aws-sdk (2.2.16)
-      aws-sdk-resources (= 2.2.16)
-    aws-sdk-core (2.2.16)
+    aws-sdk (2.2.18)
+      aws-sdk-resources (= 2.2.18)
+    aws-sdk-core (2.2.18)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.2.16)
-      aws-sdk-core (= 2.2.16)
+    aws-sdk-resources (2.2.18)
+      aws-sdk-core (= 2.2.18)
     backports (3.6.8)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -114,7 +114,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
-    compass-rails (3.0.0)
+    compass-rails (3.0.1)
       compass (~> 1.0.0)
       sass-rails (< 5.1)
       sprockets (< 4.0)
@@ -123,9 +123,8 @@ GEM
     connection_pool (2.2.0)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
-    coveralls (0.8.10)
+    coveralls (0.8.11)
       json (~> 1.8)
-      rest-client (>= 1.6.8, < 2)
       simplecov (~> 0.11.0)
       term-ansicolor (~> 1.3)
       thor (~> 0.19.1)
@@ -266,7 +265,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (1.0.3)
+    fog-softlayer (1.1.0)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -342,7 +341,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     inflecto (0.0.2)
-    ipaddress (0.8.2)
+    ipaddress (0.8.3)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -388,8 +387,7 @@ GEM
     net-ssh (3.0.2)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    netrc (0.11.0)
-    newrelic_rpm (3.14.3.313)
+    newrelic_rpm (3.15.0.314)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
@@ -406,7 +404,7 @@ GEM
     omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
-    parser (2.3.0.5)
+    parser (2.3.0.6)
       ast (~> 2.2)
     poltergeist (1.9.0)
       capybara (~> 2.1)
@@ -492,15 +490,11 @@ GEM
       servolux (~> 0.10.0)
       syslog_protocol (~> 0.9.2)
     request_store (1.3.0)
-    rest-client (1.8.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 3.0)
-      netrc (~> 0.7)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.2)
+    rspec-core (3.4.3)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -627,7 +621,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    webmock (1.22.6)
+    webmock (1.24.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -660,7 +654,7 @@ DEPENDENCIES
   capistrano-unicorn
   capybara
   coffee-rails (~> 4.1.0)
-  compass-rails (>= 1.1.7)
+  compass-rails
   configatron
   coveralls
   database_cleaner
