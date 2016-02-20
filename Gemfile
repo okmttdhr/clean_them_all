@@ -7,6 +7,7 @@ gem 'mysql2'
 
 gem 'sidekiq'
 gem 'sidekiq-status'
+gem 'redis-namespace'
 gem 'sinatra'
 
 ################################################################################
@@ -52,7 +53,7 @@ gem 'google-webfonts-rails'
 gem 'rails-timeago'
 
 gem 'faml'
-gem 'browser'
+gem 'browser', '~> 1.0'
 
 ################################################################################
 group :production, :staging do
