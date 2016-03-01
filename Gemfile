@@ -2,11 +2,12 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 ################################################################################
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 gem 'mysql2'
 
 gem 'sidekiq'
 gem 'sidekiq-status'
+gem 'redis-namespace'
 gem 'sinatra'
 
 ################################################################################
@@ -52,7 +53,7 @@ gem 'google-webfonts-rails'
 gem 'rails-timeago'
 
 gem 'faml'
-gem 'browser'
+gem 'browser', '~> 1.0'
 
 ################################################################################
 group :production, :staging do
