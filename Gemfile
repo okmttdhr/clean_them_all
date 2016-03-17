@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 ################################################################################
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 gem 'mysql2'
 
 gem 'sidekiq'
@@ -53,7 +53,7 @@ gem 'google-webfonts-rails'
 gem 'rails-timeago'
 
 gem 'faml'
-gem 'browser', '~> 1.0'
+gem 'browser'
 
 ################################################################################
 group :production, :staging do

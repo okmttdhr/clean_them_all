@@ -18,7 +18,7 @@
             show more status
       %hr.no-margin
       .wrapped-content.text-center
-        - if browser.mobile?
+        - if browser.device.mobile?
           = render :partial => 'application/adsense/m336x280_03'
         - else
           = render :partial => 'application/adsense/d336x280_03'
