@@ -53,7 +53,7 @@ gem 'google-webfonts-rails'
 gem 'rails-timeago'
 
 gem 'faml'
-gem 'browser', '~> 1.0'
+gem 'browser'
 
 ################################################################################
 group :production, :staging do
