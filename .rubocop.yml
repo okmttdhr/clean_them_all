@@ -8,3 +8,4 @@ AllCops:
     - "db/schema.rb"
     - "Guardfile"
   DisplayCopNames: true
+  TargetRubyVersion: 2.3
