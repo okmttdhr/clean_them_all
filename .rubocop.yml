@@ -1,5 +1,6 @@
 inherit_from:
   - https://raw.githubusercontent.com/houndci/hound/master/.ruby-style.yml
+  - .rubocop_todo.yml
 
 AllCops:
   Exclude:
