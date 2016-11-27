@@ -23,7 +23,7 @@ FactoryGirl.define do
     id               { Forgery(:basic).number(at_most: 10000000) }
 
     # extras
-    signedin_at      { DateTime.now }
+    signedin_at      { DateTime.current }
     statuses_count   { Forgery('basic').number }
     registered_at    { 3.months.ago }
 

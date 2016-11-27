@@ -56,7 +56,7 @@ class SessionsController < ApplicationController
   end
 
   def signedin_at(auth)
-    DateTime.now
+    DateTime.current
   end
 
   def statuses_count(auth)
@@ -66,8 +66,8 @@ class SessionsController < ApplicationController
   end
 
   def registered_at(auth)
-    Time.parse(auth[:extra][:raw_info][:created_at]).to_datetime.to_s
+    Time.zone.parse(auth[:extra][:raw_info][:created_at]).to_datetime.to_s
   rescue
-    DateTime.new(2006, 1, 1)
+    Time.zone.local(2006, 1, 1)
   end
 end

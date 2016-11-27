@@ -7,7 +7,7 @@ module Doctorable
       metric_name: 'ApproximateNumberOfMessagesVisible',
       start_time:  5.minutes.ago.iso8601,
       end_time:    Time.now.iso8601,
-      period:      1.minutes,
+      period:      1.minute,
       statistics:  ['Average'],
       dimensions:  [
         { name: 'QueueName', value: configatron.collect_and_destroy.aws.sqs.queue_name }

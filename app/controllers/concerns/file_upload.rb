@@ -16,7 +16,7 @@ module FileUpload
   private
 
   def get_presigned_url(key)
-    Aws::S3::Resource.new.bucket(configatron.aws.s3.bucket_name).object(key).presigned_url(:get, expires_in: 1.days)
+    Aws::S3::Resource.new.bucket(configatron.aws.s3.bucket_name).object(key).presigned_url(:get, expires_in: 1.day)
   end
 
   def store_file(key, data)

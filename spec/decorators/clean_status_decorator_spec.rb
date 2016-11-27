@@ -74,7 +74,7 @@ describe CleanStatusDecorator, type: :decorator do
   describe '#processing_time' do
     subject { decorator.processing_time }
     let(:clean_status) { double(:clean_status, progression: progression) }
-    let(:progression) { double(:progression, created_at: DateTime.now, updated_at: DateTime.now) }
+    let(:progression) { double(:progression, created_at: DateTime.current, updated_at: DateTime.current) }
 
     it { is_expected.to be_kind_of String }
   end

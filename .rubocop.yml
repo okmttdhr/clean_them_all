@@ -1,10 +1,13 @@
 inherit_from:
   - https://raw.githubusercontent.com/houndci/hound/master/.ruby-style.yml
+  - .rubocop_todo.yml
 
 AllCops:
   Exclude:
     - "bin/*"
     - "vendor/**/*"
     - "db/schema.rb"
+    - "config/unicorn/*"
     - "Guardfile"
   DisplayCopNames: true
+  TargetRubyVersion: 2.3
