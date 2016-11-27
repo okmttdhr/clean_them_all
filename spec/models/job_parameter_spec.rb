@@ -26,9 +26,9 @@ describe JobParameter, type: :model do
 
     let(:job_parameter) { build(:job_parameter) }
     let(:extras) { {
-      signedin_at: DateTime.new(2014, 1, 1),
+      signedin_at: Time.zone.local(2014, 1, 1),
       statuses_count: 2014,
-      registered_at: DateTime.new(2014, 1, 1),
+      registered_at: Time.zone.local(2014, 1, 1),
     } }
 
     before do
@@ -48,8 +48,8 @@ describe JobParameter, type: :model do
       archive_url:      'http://example.com/archive',
       protect_reply:    true,
       protect_favorite: true,
-      collect_from:     DateTime.new(2014, 1, 1),
-      collect_to:       DateTime.new(2014, 1, 1),
+      collect_from:     Time.zone.local(2014, 1, 1),
+      collect_to:       Time.zone.local(2014, 1, 1),
       start_message:    'start!',
       finish_message:   'finish!'
     } }
@@ -62,8 +62,8 @@ describe JobParameter, type: :model do
     its(:archive_url)      { is_expected.to eq options[:archive_url] }
     its(:protect_reply)    { is_expected.to eq options[:protect_reply] }
     its(:protect_favorite) { is_expected.to eq options[:protect_favorite] }
-    its(:collect_from)     { is_expected.to eq options[:collect_from] }
-    its(:collect_to)       { is_expected.to eq options[:collect_to] }
+    its(:collect_from)     { is_expected.to eq options[:collect_from].to_date }
+    its(:collect_to)       { is_expected.to eq options[:collect_to].to_date }
     its(:start_message)    { is_expected.to eq options[:start_message] }
     its(:finish_message)   { is_expected.to eq options[:finish_message] }
   end

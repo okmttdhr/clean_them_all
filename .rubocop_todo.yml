@@ -100,6 +100,7 @@ Style/CommandLiteral:
 Style/ConditionalAssignment:
   Exclude:
     - 'app/controllers/cleaners_controller.rb'
+    - 'spec/support/omniauth.rb'
 
 # Offense count: 8
 # Cop supports --auto-correct.

@@ -50,7 +50,7 @@ feature 'Cleaners', type: :feature do
       expect(current_path).to eq status_cleaner_path
       expect(active_job).to be_processing
       expect(active_job.user_id).to eq @user.id
-      expect(created_params.signedin_at).to be_within(10).of(DateTime.now)
+      expect(created_params.signedin_at).to be_within(10).of(DateTime.current)
       expect(created_params.statuses_count).to eq 7777
       expect(created_params.collect_method).to eq 'timeline'
       expect(created_params.archive_url).to be_nil
