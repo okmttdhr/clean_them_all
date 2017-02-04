@@ -4,11 +4,11 @@
       - @timeline.each_with_index do |status, index|
         - if index.zero?
           .wrapped-ad.text-center
-            = render :partial => 'application/adsense/m336x280_03'
+            = render :partial => 'application/adsense/m336x280_20170205'
         = render partial: 'histories/status', locals: { status: status }
         - if @timeline.count >= 8 && index == (@timeline.count / 2).to_i
           .wrapped-ad.text-center
-            = render :partial => 'application/adsense/m336x280_03'
+            = render :partial => 'application/adsense/m336x280_20170205'
   .pagination.text-center
     - prev_page = params[:page].to_i - 1
     - next_page = params[:page].to_i + 1
