@@ -28,6 +28,6 @@ production:
   database: clean_them_all
   username: kurorekishi_me
   password: kurorekishi_me
-  host: kurorekishi-me.c3worgholwhq.us-east-1.rds.amazonaws.com
+  host: kurorekishi.c3worgholwhq.us-east-1.rds.amazonaws.com
   reconnect: true
   pool: 1
