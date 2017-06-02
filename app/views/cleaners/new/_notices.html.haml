@@ -1,0 +1,23 @@
+- message = NotificationMessage.find_by_random
+
+#notices
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        通知設定
+      %dl
+        %dt
+          開始メッセージ
+        %dd
+          = form.text_area :start_message, value: message.start, rows: 2, class: 'full-width'
+      %p(style='margin-top: -15px;')
+        削除の開始時に投稿されます。<br>
+        メッセージは自由に編集できます。
+      %dl
+        %dt
+          完了メッセージ
+        %dd
+          = form.text_area :finish_message, value: message.finish, rows: 2, class: 'full-width'
+      %p(style='margin-top: -15px;')
+        削除の完了時に投稿されます。<br>
+        メッセージは自由に編集できます。

@@ -1,0 +1,8 @@
+#content.blog.bg-dark
+  #result
+    = render 'cleaners/result/score', job: @job
+    = render 'cleaners/result/support', job: @job
+
+  .primary-button.text-center(style='margin:8px')
+    = link_to cleaner_path, method: :delete, class: 'button radius' do
+      DONE

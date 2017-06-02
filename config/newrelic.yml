@@ -1,0 +1,39 @@
+common: &default_settings
+  license_key: 6ee82fbd2ca66dec4324b3b5872802e03c5e435c
+  app_name: clean_them_all
+  monitor_mode: true
+  developer_mode: false
+  log_level: info
+  ssl: true
+  browser_monitoring:
+    auto_instrument: true
+  audit_log:
+    enabled: false
+  capture_params: false
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: apdex_f
+    record_sql: obfuscated
+    stack_trace_threshold: 0.500
+  error_collector:
+    enabled: true
+    capture_source: true
+    ignore_errors: "ActionController::RoutingError,Sinatra::NotFound"
+
+development:
+  <<: *default_settings
+  app_name: clean_them_all (Development)
+  monitor_mode: false
+
+test:
+  <<: *default_settings
+  # It doesn't make sense to report to New Relic from automated test runs.
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  monitor_mode: true
+
+production:
+  <<: *default_settings
+  monitor_mode: true
