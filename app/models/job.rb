@@ -10,6 +10,7 @@
 #  destroy_count           :integer          default(0)
 #  notified_start_message  :boolean          default(FALSE)
 #  notified_finish_message :boolean          default(FALSE)
+#  finished_at             :datetime
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #

@@ -1,17 +1,17 @@
 language: ruby
 rvm:
-- 2.3.3
+  - 2.4.1
 bundler_args: "--without production --deployment --jobs=4"
 cache: bundler
 sudo: false
 branches:
   only:
-  - master
+    - master
 env:
-- DB=mysql
+  - DB=mysql
 script:
-- bundle exec rake db:drop db:create db:migrate db:seed
-- bundle exec rake spec SPEC_OPTS="--color --format documentation"
+  - bundle exec rake db:drop db:create db:migrate db:seed
+  - bundle exec rake spec SPEC_OPTS="--color --format documentation"
 notifications:
   email: false
   slack:
