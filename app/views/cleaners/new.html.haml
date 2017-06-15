@@ -5,10 +5,10 @@
         var collect_method = $('#job_parameter_collect_method').val();
         var archive_url    = $('#job_parameter_archive_url').val();
         if (collect_method == 'archive' && archive_url == '') {
+          e.preventDefault();
           alert('全ツイート履歴のアップロードが必要です');
           return false;
         }
-        $(this).parents("form").submit();
       });
     });
 
@@ -22,5 +22,4 @@
         = render 'cleaners/new/notices', form: f
 
       .primary-button.text-center(style='margin:8px')
-        = link_to 'javascript:void(0);', class: 'button radius alert', id: 'submit' do
-          削除を開始する
+        = f.submit '削除を開始する', class: 'button radius alert', id: 'submit'

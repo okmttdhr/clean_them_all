@@ -27,7 +27,24 @@ FactoryGirl.define do
     transition_state  { :processing }
     progression_state { :collecting }
 
+    trait :processing do
+      transition_state  { :processing }
+      progression_state { :collecting }
+    end
+
+    trait :confirming do
+      transition_state  { :confirming }
+      progression_state { :completed  }
+      finished_at       { Time.zone.now }
+    end
+
+    trait :closing do
+      transition_state  { :closing }
+      progression_state { :completed  }
+      finished_at       { Time.zone.now }
+    end
+
     association :user
-    association :parameter, factory: :job_parameter
+    association :parameter, factory: :job_parameter, strategy: :build
   end
 end
