@@ -7,7 +7,7 @@ module Backend::Concerns::Services::Notifyable
       twitter_client.update message
     end
   rescue => ex
-    # do nothing
+    Bugsnag.notify(ex)
   end
 
   private

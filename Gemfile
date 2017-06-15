@@ -71,18 +71,31 @@ group :production do
 end
 
 group :development, :test do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'pry-byebug'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'shoulda-matchers'
+  gem 'forgery'
+  gem 'timecop'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop', require: false
+  gem 'travis'
+  gem 'travis-lint'
 
   gem 'bullet'
   gem 'beautiful-log'

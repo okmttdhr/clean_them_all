@@ -1,0 +1,16 @@
+inherit_from:
+  - .rubocop_disabled.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "bin/*"
+    - "config/deploy/*"
+    - "db/schema.rb"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+  DisplayCopNames: true
+  TargetRubyVersion: 2.4
+
+Rails:
+  Enabled: true
