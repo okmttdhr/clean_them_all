@@ -31,13 +31,13 @@ class SessionsController < ApplicationController
 
   def extras_for(auth)
     {
-      signedin_at:    signedin_at(auth),
+      signedin_at:    signedin_at,
       statuses_count: statuses_count(auth),
       registered_at:  registered_at(auth),
     }
   end
 
-  def signedin_at(auth)
+  def signedin_at
     DateTime.current
   end
 

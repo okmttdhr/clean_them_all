@@ -1,32 +1,33 @@
 Bundler/OrderedGems:
   Enabled: false
 
-Lint/AmbiguousRegexpLiteral:
+Lint/AmbiguousOperator:
   Enabled: false
-Lint/AssignmentInCondition:
-  Enabled: false
-Lint/BlockAlignment:
-  Enabled: false
-Lint/DefEndAlignment:
-  Enabled: false
-# The cop reports not reasonable issues. So, disabled.
-# See. http://tech.sideci.com/entry/2016/11/01/105900
-Lint/EmptyWhen:
-  Enabled: false
-Lint/EndAlignment:
-  Enabled: false
-Lint/HandleExceptions:
-  Enabled: false
-Lint/Loop:
-  Enabled: false
-Lint/RescueException:
-  Enabled: false
-Lint/UnneededDisable:
-  Enabled: false
-Lint/UnusedBlockArgument:
-  Enabled: false
-Lint/UnusedMethodArgument:
-  Enabled: false
+# Lint/AmbiguousRegexpLiteral:
+#   Enabled: false
+# Lint/AssignmentInCondition:
+#   Enabled: false
+# Lint/BlockAlignment:
+#   Enabled: false
+# Lint/DefEndAlignment:
+#   Enabled: false
+
+# Lint/EmptyWhen:
+#   Enabled: false
+# Lint/EndAlignment:
+#   Enabled: false
+# Lint/HandleExceptions:
+#   Enabled: false
+# Lint/Loop:
+#   Enabled: false
+# Lint/RescueException:
+#   Enabled: false
+# Lint/UnneededDisable:
+#   Enabled: false
+# Lint/UnusedBlockArgument:
+#   Enabled: false
+# Lint/UnusedMethodArgument:
+#   Enabled: false
 
 # If AbcSize > 50, really really really really really really really complex
 Metrics/AbcSize:
@@ -64,29 +65,31 @@ Metrics/PerceivedComplexity:
 
 Performance/RedundantBlockCall:
   Enabled: false
+Performance/RedundantMerge:
+  Enabled: false
 
-Rails/ActiveSupportAliases:
-  Enabled: false
-Rails/Delegate:
-  Enabled: false
+# Rails/ActiveSupportAliases:
+#   Enabled: false
+# Rails/Delegate:
+#   Enabled: false
 Rails/FilePath:
   Enabled: false
-Rails/HttpPositionalArguments:
-  Enabled: false
-Rails/Output:
-  Enabled: false
-Rails/OutputSafety:
-  Enabled: false
-Rails/PluralizationGrammar:
-  Enabled: false
-Rails/SkipsModelValidations:
-  Enabled: false
-Rails/ReadWriteAttribute:
-  Enabled: false
-Rails/RequestReferer:
-  Enabled: false
-Rails/SafeNavigation:
-  Enabled: false
+# Rails/HttpPositionalArguments:
+#   Enabled: false
+# Rails/Output:
+#   Enabled: false
+# Rails/OutputSafety:
+#   Enabled: false
+# Rails/PluralizationGrammar:
+#   Enabled: false
+# Rails/SkipsModelValidations:
+#   Enabled: false
+# Rails/ReadWriteAttribute:
+#   Enabled: false
+# Rails/RequestReferer:
+#   Enabled: false
+# Rails/SafeNavigation:
+#   Enabled: false
 
 Security/Eval:
   Enabled: false
@@ -377,6 +380,8 @@ Style/ParallelAssignment:
 Style/PercentLiteralDelimiters:
   Enabled: false
 Style/PercentQLiterals:
+  Enabled: false
+Style/ParenthesesAroundCondition:
   Enabled: false
 Style/PerlBackrefs:
   Enabled: false

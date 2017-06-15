@@ -11,15 +11,15 @@ module Verifyable
   private
 
   def user_should_be_authorized
-    redirect_to root_path, alert: '認証されていません。Twitterでログインしてください' unless current_user.present?
+    redirect_to root_path, alert: '認証されていません。Twitterでログインしてください' if current_user.blank?
   end
 
   def user_should_not_have_active_job
-    redirect_to cleaner_path unless current_user.active_job.blank?
+    redirect_to cleaner_path if current_user.active_job.present?
   end
 
   def user_should_have_active_job
-    redirect_to info_cleaner_path unless current_user.active_job.present?
+    redirect_to info_cleaner_path if current_user.active_job.blank?
   end
 
   def active_job_should_be_closing

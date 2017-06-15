@@ -5,8 +5,9 @@ inherit_from:
 AllCops:
   Exclude:
     - "bin/*"
-    - "vendor/**/*"
+    - "config/deploy/*"
     - "db/schema.rb"
+    - "vendor/**/*"
     - "node_modules/**/*"
   DisplayCopNames: true
   TargetRubyVersion: 2.4

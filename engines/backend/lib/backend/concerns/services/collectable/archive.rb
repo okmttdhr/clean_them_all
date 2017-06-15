@@ -29,7 +29,7 @@ module Backend::Concerns::Services::Collectable::Archive
     }
   end
 
-  private
+  ##############################################################################
 
   READ_ARCHIVE_COMMAND = 'curl -s "%{source}"'
   UNCOMPRESS_COMMAND   = "unzip -l %{source} 2>/dev/null | grep -m 1 tweets.csv | awk '{print $4}' | xargs unzip -p %{source}"
