@@ -1,7 +1,7 @@
 set :application, 'clean_them_all'
 set :repo_url, 'https://github.com/cohakim/clean_them_all.git'
 
-set :branch, 'develop'
+set :branch, 'master'
 set :deploy_to, "/var/www/app/clean_them_all"
 
 set :format, :pretty

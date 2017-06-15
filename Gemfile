@@ -70,6 +70,13 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+group :test do
+  gem 'webmock'
+  gem 'database_cleaner'
+  gem 'fuubar'
+  gem 'coveralls', require: false
+end
+
 group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -83,7 +90,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'forgery'
   gem 'timecop'
