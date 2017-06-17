@@ -9,7 +9,7 @@ module Backend::Concerns::Services::Collectable::Archive
 
   def retrieve_archive
     Tempfile.open(['tmp', '.zip'], binmode: true) do |fp|
-      fp << download_archive(@collect_parameter.archive_url)
+      fp << download_archive(collect_parameter.archive_url)
       Tempfile.open(['tmp', '.csv']) do |cp|
         cp << extract_tweet_csv(fp.path)
         CSV.foreach(cp.path, headers: true, header_converters: :symbol) do |status|

@@ -83,10 +83,13 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
 
+  gem 'rspec'
   gem 'rspec-rails'
+  gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'

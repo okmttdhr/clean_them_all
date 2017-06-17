@@ -2,6 +2,7 @@ module Backend::Concerns::Services::Destroyable
   extend ActiveSupport::Concern
   include Backend::Concerns::Services::Requestable
 
+  RETRY_INTERVAL = 1
   REQUEST_URL = "https://api.twitter.com/1.1/statuses/destroy/%{status_id}.json"
 
   def destroy(status_ids)
@@ -13,7 +14,7 @@ module Backend::Concerns::Services::Destroyable
       rescue
         if retry_count <= 3
           retry_count += 1
-          sleep 1
+          sleep RETRY_INTERVAL
           retry
         else
           raise
