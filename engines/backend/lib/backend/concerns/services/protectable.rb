@@ -17,16 +17,16 @@ module Backend::Concerns::Services::Protectable
     Time.zone.parse(status[:created_at]) >= protect_parameter.signedin_at
   end
 
-  # 対象期間より古いツイートを保護する
+  # 対象期間より前に投稿されたツイートを保護する
   def protect_before_collect_from?(status)
     return false if protect_parameter.collect_from.blank?
-    Time.zone.parse(status[:created_at]) > protect_parameter.collect_from
+    Time.zone.parse(status[:created_at]) < protect_parameter.collect_from
   end
 
-  # 対象期間より新しいツイートを保護する
+  # 対象期間より後に投稿されたツイートを保護する
   def protect_after_collect_to?(status)
     return false if protect_parameter.collect_to.blank?
-    Time.zone.parse(status[:created_at]) <= protect_parameter.collect_to
+    Time.zone.parse(status[:created_at]) >= protect_parameter.collect_to
   end
 
   # リプライを保護する
