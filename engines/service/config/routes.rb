@@ -10,8 +10,7 @@ Service::Engine.routes.draw do
 
   # kpi
   namespace :kpi, { defaults: { format: :xml } } do
-    get :overview
-    get :registrations
+    get :feed
   end
 
   # sidekiq

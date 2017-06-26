@@ -16,3 +16,4 @@ require 'capistrano/sidekiq/monit'
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
+install_plugin Capistrano::Puma, load_hooks: false
