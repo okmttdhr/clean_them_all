@@ -4,7 +4,6 @@ rvm:
 bundler_args: "--without production --deployment --jobs=4"
 cache:
   bundler: true
-  yarn: true
   directories:
     - node_modules
 sudo: false
