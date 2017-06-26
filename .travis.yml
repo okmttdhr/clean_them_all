@@ -1,17 +1,16 @@
+sudo: false
 language: ruby
 rvm:
   - 2.4.1
-bundler_args: "--without production --deployment --jobs=4"
 cache:
   bundler: true
   directories:
     - node_modules
-sudo: false
+  yarn: true
 branches:
   only:
     - master
-env:
-  - DB=mysql
+
 install:
   - bundle install
   - nvm install node
@@ -19,8 +18,8 @@ install:
   - npm i -g yarn
   - yarn
 script:
-  - bundle exec rake db:drop db:create db:migrate db:seed
-  - bundle exec rake spec SPEC_OPTS="--color --format documentation"
+  - yarn lint
+  - bundle exec rake test
 notifications:
   email: false
   slack:
