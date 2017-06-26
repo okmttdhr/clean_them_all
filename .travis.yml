@@ -1,3 +1,4 @@
+sudo: false
 language: ruby
 rvm:
   - 2.4.1
@@ -5,13 +6,13 @@ bundler_args: "--without production --deployment --jobs=4"
 cache:
   bundler: true
   directories:
+    - vendor/bundle
     - node_modules
-sudo: false
+  yarn: true
 branches:
   only:
     - master
-env:
-  - DB=mysql
+
 install:
   - bundle install
   - nvm install node
