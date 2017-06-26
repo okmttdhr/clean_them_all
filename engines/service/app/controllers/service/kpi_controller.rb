@@ -3,7 +3,7 @@ module Service
     def feed
       @overview      = overview
       @registrations = registrations
-      render :feed, content_type: 'application/rss'
+      render :feed, content_type: 'application/rss+xml'
     end
 
     private
