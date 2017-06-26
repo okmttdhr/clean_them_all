@@ -1,8 +1,9 @@
 xml.instruct! :xml, version: 1.0
-xml.rss(version: '2.0') do
+xml.rss version: '2.0', 'xmlns:atom': 'http://www.w3.org/2005/Atom' do
   xml.channel do
     xml.title "黒歴史クリーナー"
     xml.link "http://kurorekishi.me/cleaner"
+    xml.atom :link, href: "http://kurorekishi.me/cleaner", rel: "self", type: "application/rss+xml"
     xml.description "KPI | 黒歴史クリーナー"
     xml.lastBuildDate Time.zone.now.to_s(:rfc822)
 
