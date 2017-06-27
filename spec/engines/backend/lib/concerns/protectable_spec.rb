@@ -56,7 +56,7 @@ describe Backend::Concerns::Services::Protectable do
     end
 
     context '削除対象日より前に投稿されたツイートだった場合' do
-      let(:parameter) { double(collect_from: Date.today) }
+      let(:parameter) { double(collect_from: Time.zone.today) }
       let(:status) { { created_at: Forgery(:date).date(past: true).to_s } }
 
       specify 'ツイートは保護される' do
@@ -65,7 +65,7 @@ describe Backend::Concerns::Services::Protectable do
     end
 
     context '削除対象日より後に投稿されたツイートだった場合' do
-      let(:parameter) { double(collect_from: Date.today) }
+      let(:parameter) { double(collect_from: Time.zone.today) }
       let(:status) { { created_at: Forgery(:date).date(future: true).to_s } }
 
       specify 'ツイートは保護されない' do
@@ -91,7 +91,7 @@ describe Backend::Concerns::Services::Protectable do
     end
 
     context '削除対象日より前に投稿されたツイートだった場合' do
-      let(:parameter) { double(collect_to: Date.today) }
+      let(:parameter) { double(collect_to: Time.zone.today) }
       let(:status) { { created_at: Forgery(:date).date(past: true).to_s } }
 
       specify 'ツイートは保護されない' do
@@ -100,7 +100,7 @@ describe Backend::Concerns::Services::Protectable do
     end
 
     context '削除対象日より後に投稿されたツイートだった場合' do
-      let(:parameter) { double(collect_to: Date.today) }
+      let(:parameter) { double(collect_to: Time.zone.today) }
       let(:status) { { created_at: Forgery(:date).date(future: true).to_s } }
 
       specify 'ツイートは保護される' do
