@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: redirect('/cleaner/getstarted')
 
   # roots
-  direct :blog { 'http://clean-them-all.tumblr.com/' }
+  direct :blog { 'http://blog.kurorekishi.me' }
   scope '/cleaner' do
     get :getstarted, to: 'roots#show'
     get :usage,      to: 'roots#usage',   as: 'usage'

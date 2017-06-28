@@ -7,6 +7,10 @@ def hosts_for_role(role)
   hosts        = %x( aws ec2 describe-instances --filters #{filters} --query #{query} --output text ).split("\n")
 end
 
+def current_branch
+  `git branch`.match(/\* (\S+)\s/m)[1] || 'master'
+end
+
 set :proxy_host, 'manage.kurorekishi.me'
 set :ssh_options, {
  user: 'ec2-user',
@@ -14,7 +18,9 @@ set :ssh_options, {
  forward_agent: false,
  auth_methods: %w(publickey)
 }
-set :branch, 'master'
+
+set :stage, :production
+set :branch, current_branch
 
 %w(web app db).each do |role|
   hosts_for_role(role).each do |host|
