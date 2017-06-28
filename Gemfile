@@ -73,7 +73,7 @@ end
 group :test do
   gem 'webmock'
   gem 'database_cleaner'
-  gem 'fuubar'
+  gem 'nyan-cat-formatter'
   gem 'coveralls', require: false
 end
 
