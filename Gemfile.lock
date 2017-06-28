@@ -187,9 +187,6 @@ GEM
     foreman (0.84.0)
       thor (~> 0.19.1)
     forgery (0.6.0)
-    fuubar (2.2.0)
-      rspec-core (~> 3.0)
-      ruby-progressbar (~> 1.4)
     gh (0.15.1)
       addressable (~> 2.4.0)
       backports
@@ -273,6 +270,8 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     normalize-rails (4.1.1)
+    nyan-cat-formatter (0.12.0)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     oauth (0.5.3)
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
@@ -525,7 +524,6 @@ DEPENDENCIES
   factory_girl_rails
   foreman
   forgery
-  fuubar
   google-webfonts-rails!
   haml-rails
   i18n_generators
@@ -537,6 +535,7 @@ DEPENDENCIES
   mysql2
   newrelic_rpm
   normalize-rails
+  nyan-cat-formatter
   omniauth
   omniauth-twitter
   pickadate-rails
