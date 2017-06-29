@@ -1,15 +1,7 @@
 module Service
   class KpiController < ApplicationController
-    def feed
-      @overview      = overview
-      @registrations = registrations
-      render :feed, content_type: 'application/rss+xml'
-    end
-
-    private
-
     def overview
-      {
+      render json: {
         processing: Job.processing.count,
         collecting: Job.collecting.count,
         cleaning:   Job.cleaning.count,
@@ -18,7 +10,7 @@ module Service
     end
 
     def registrations
-      {
+      render json: {
         users: User.count,
         jobs:  Job.count,
       }
