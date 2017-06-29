@@ -543,7 +543,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 3.7)
-  rails (~> 5.1.1)
+  rails (~> 5.1.2)
   rails-timeago
   remodal-rails
   rspec
