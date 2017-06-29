@@ -1,6 +1,6 @@
 Service::Engine.routes.draw do
   # health
-  namespace :health, { defaults: { format: :xml } } do
+  namespace :health do
     get :official_account
     get :processing_jobs
     get :collecting_jobs
@@ -9,8 +9,9 @@ Service::Engine.routes.draw do
   end
 
   # kpi
-  namespace :kpi, { defaults: { format: :xml } } do
-    get :feed
+  namespace :kpi do
+    get :overview
+    get :registrations
   end
 
   # sidekiq
