@@ -3,8 +3,10 @@ set :repo_url, 'https://github.com/cohakim/clean_them_all.git'
 
 set :deploy_to, '/var/www/app/clean_them_all'
 
+set :pty, false
 set :format, :pretty
 set :log_level, :info
+set :bundle_binstubs, nil
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.4.1'
@@ -19,6 +21,7 @@ set :assets_roles, %i(web)
 set :puma_role, :web
 set :puma_init_active_record, true
 
+set :sidekiq_default_hooks, false
 set :sidekiq_role, %i(app)
 set :sidekiq_concurrency, 1
 set :sidekiq_monit_conf_dir, '/etc/monit.d'
@@ -26,6 +29,3 @@ set :sidekiq_monit_conf_dir, '/etc/monit.d'
 set :linked_dirs, fetch(:linked_dirs, []).push(
   'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system'
 )
-
-set :pty, false
-set :bundle_binstubs, nil
