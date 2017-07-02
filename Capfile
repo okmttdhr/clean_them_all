@@ -12,6 +12,7 @@ require 'capistrano/rails/migrations'
 require 'capistrano/puma'
 require 'capistrano/sidekiq'
 require 'capistrano/sidekiq/monit'
+require 'capistrano/deploytags'
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 install_plugin Capistrano::Puma, load_hooks: false
