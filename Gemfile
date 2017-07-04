@@ -14,6 +14,7 @@ gem 'puma', '~> 3.7'
 gem 'bugsnag'
 gem 'configatron'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rambulance'
 
 # backend
 gem 'sidekiq'
@@ -123,4 +124,5 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'
   gem 'capistrano-deploytags'
+  gem 'capistrano-maintenance'
 end
