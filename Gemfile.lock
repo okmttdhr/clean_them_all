@@ -126,6 +126,8 @@ GEM
       sshkit (~> 1.2)
     capistrano-deploytags (1.0.7)
       capistrano (>= 3.7.0)
+    capistrano-maintenance (1.2.0)
+      capistrano (>= 3.0)
     capistrano-rails (1.3.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -337,6 +339,10 @@ GEM
     rainbow (2.2.2)
       rake
     rake (12.0.0)
+    rambulance (0.4.0)
+      actionpack
+      activesupport
+      railties
     rb-fsevent (0.10.1)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -514,6 +520,7 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-deploytags
+  capistrano-maintenance
   capistrano-rails
   capistrano-rbenv
   capistrano-sidekiq
@@ -548,6 +555,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.2)
   rails-timeago
+  rambulance
   remodal-rails
   rspec
   rspec-rails
