@@ -27,6 +27,8 @@ class Job < ApplicationRecord
 
   scope :active, -> { where(transition_state: %i(processing confirming closing)) }
 
+  validates :user_id, uniqueness: { scope: :transition_state }, on: :create
+
   include AASM
   aasm :transition, column: 'transition_state' do
     state :processing, initial: true
