@@ -31,7 +31,7 @@ class TimelineFragment < ApplicationRecord
     end
 
     def flush
-      TimelineFragment.import [:id, :job_id], buffer
+      TimelineFragment.import [:id, :job_id], buffer, on_duplicate_key_update: [:job_id]
       buffer.clear
     end
   end
