@@ -31,3 +31,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 )
 
 set :maintenance_template_path, File.expand_path('../../app/views/layouts/maintenance.html.erb', __FILE__)
+
+set :deploytag_time_format, '%Y%m%d-%H%M%S'
+set :deploytag_utc, false
