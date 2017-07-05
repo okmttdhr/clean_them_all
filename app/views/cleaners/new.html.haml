@@ -19,7 +19,7 @@
         = render 'cleaners/new/account'
         = render 'cleaners/new/method',  form: f
         = render 'cleaners/new/options', form: f
-        = render 'cleaners/new/notices', form: f
+        = render 'cleaners/new/notices', form: f, user_name: current_user.name
 
       .primary-button.text-center(style='margin:8px')
         = f.submit '削除を開始する', class: 'button radius alert', id: 'submit'
