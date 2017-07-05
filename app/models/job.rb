@@ -38,7 +38,6 @@ class Job < ApplicationRecord
 
     event :process do
       after do
-        TimelineFragment.where(job_id: id).delete_all
         update! finished_at: DateTime.current
       end
       transitions from: :processing, to: :confirming
