@@ -1,7 +1,14 @@
-configatron.twitter.consumer_key    = ENV['TWITTER_CONSUMER_KEY']
-configatron.twitter.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
-configatron.aws.s3.bucket_name      = 'kurorekishi-me'
+# service credentials
+configatron.twitter.consumer_key    = Rails.application.secrets.twitter_consumer_key
+configatron.twitter.consumer_secret = Rails.application.secrets.twitter_consumer_secret
 
-# official account
-configatron.twitter.access_token        = ENV['TWITTER_ACCESS_TOKEN']
-configatron.twitter.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECERT']
+# twitter official account
+configatron.twitter.access_token        = Rails.application.secrets.twitter_access_token
+configatron.twitter.access_token_secret = Rails.application.secrets.twitter_access_token_secert
+
+# AWS
+configatron.aws.region         = 'us-east-1'
+configatron.aws.s3.bucket_name = 'kurorekishi-me'
+
+# bugsnag
+configatron.bugsnag.api_key = Rails.application.secrets.bugsnag_api_key
