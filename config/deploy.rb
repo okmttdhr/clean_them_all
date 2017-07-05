@@ -27,7 +27,7 @@ set :sidekiq_concurrency, 1
 set :sidekiq_monit_conf_dir, '/etc/monit.d'
 
 set :linked_dirs, fetch(:linked_dirs, []).push(
-  'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system'
+  'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'config/secrets.yml.key'
 )
 
 set :maintenance_template_path, File.expand_path('../../app/views/layouts/maintenance.html.erb', __FILE__)

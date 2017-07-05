@@ -1,3 +1,7 @@
 polling:
   class: Backend::PollingJob
   every: ['8s']
+
+sweeper:
+  class: Backend::SweeperJob
+  every: ['1m']

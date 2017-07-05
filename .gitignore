@@ -26,3 +26,7 @@
 /public/packs
 /public/packs-test
 /node_modules
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
+config/secrets.yml
