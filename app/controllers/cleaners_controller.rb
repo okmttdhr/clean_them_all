@@ -5,10 +5,13 @@ class CleanersController < ApplicationController
   def new; end
 
   def create
-    Job.create! do |job|
-      job.build_parameter
-      job.user_id              = current_user.id
-      job.parameter.attributes = permitted_job_params
+    ActiveRecord::Base.transaction do
+      Job.new.tap do |job|
+        job.build_parameter
+        job.user_id              = current_user.id
+        job.parameter.attributes = permitted_job_params
+        job.save!
+      end
     end
     redirect_to cleaner_path
   end
