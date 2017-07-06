@@ -19,7 +19,7 @@ module Verifyable
   end
 
   def user_should_have_active_job
-    redirect_to info_cleaner_path if current_user.active_job.blank?
+    redirect_to root_path if current_user.active_job.blank?
   end
 
   def active_job_should_be_closing
