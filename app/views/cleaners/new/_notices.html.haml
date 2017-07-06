@@ -10,7 +10,7 @@
         %dt
           開始メッセージ
         %dd
-          = form.text_area :start_message, value: "#{repry_to} #{message.start}", rows: 2, class: 'full-width'
+          = form.text_area :start_message, value: "#{repry_to} #{message.start}", rows: 2, maxlength: 140, class: 'full-width'
       %p(style='margin-top: -15px;')
         削除の開始時に投稿されます。<br>
         メッセージは自由に編集できます。
@@ -18,7 +18,7 @@
         %dt
           完了メッセージ
         %dd
-          = form.text_area :finish_message, value: "#{repry_to} #{message.finish}", rows: 2, class: 'full-width'
+          = form.text_area :finish_message, value: "#{repry_to} #{message.finish}", rows: 2, maxlength: 140, class: 'full-width'
       %p(style='margin-top: -15px;')
         削除の完了時に投稿されます。<br>
         メッセージは自由に編集できます。
