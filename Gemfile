@@ -123,7 +123,6 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'
-  gem 'capistrano-deploytags'
   gem 'capistrano-maintenance'
 end
 
