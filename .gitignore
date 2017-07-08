@@ -30,3 +30,5 @@
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 config/secrets.yml
+
+/public/production/assets
