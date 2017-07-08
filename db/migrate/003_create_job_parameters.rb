@@ -1,6 +1,6 @@
 class CreateJobParameters < ActiveRecord::Migration[5.1]
   def change
-    create_table :job_parameters, primary_key: [:id] do |t|
+    create_table :job_parameters, primary_key: [:id], options: 'ROW_FORMAT=DYNAMIC' do |t|
       t.bigint     :id
 
       # extras

@@ -1,6 +1,6 @@
 class CreateJobs < ActiveRecord::Migration[5.1]
   def change
-    create_table :jobs do |t|
+    create_table :jobs, options: 'ROW_FORMAT=DYNAMIC' do |t|
       t.references :user,              null: false
       t.string     :transition_state,  null: false
       t.string     :progression_state, null: false, index: true
