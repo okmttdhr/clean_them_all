@@ -25,5 +25,5 @@ production:
   database: clean_them_all
   username: clean_them_all
   password: clean_them_all
-  host: clean-them-all.c3worgholwhq.us-east-1.rds.amazonaws.com
+  host: clean-them-all-20170709-cluster.cluster-c3worgholwhq.us-east-1.rds.amazonaws.com
   pool: 16

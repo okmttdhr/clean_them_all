@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
   def change
-    create_table :users, primary_key: [:id] do |t|
+    create_table :users, primary_key: [:id], options: 'ROW_FORMAT=DYNAMIC' do |t|
       t.bigint :id
 
       t.string :token,  null: false
