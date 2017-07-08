@@ -125,4 +125,8 @@ group :development do
   gem 'capistrano-sidekiq'
   gem 'capistrano-deploytags'
   gem 'capistrano-maintenance'
+
+  # assets extend
+  gem 'asset_sync'
+  gem 'fog-aws'
 end
