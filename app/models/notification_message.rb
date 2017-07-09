@@ -17,7 +17,7 @@ class NotificationMessage < ActiveHash::Base
     start: 'ツイ消しせねばっ =͟͟͞͞(๑•̀ㅁ•́ฅ✧ | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー',
     finish: 'ツイ消し終わった (๐ ́꒪̐ꈊ͒꒪̐)ꐳ | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー'
   create id: 6,
-    start: 'ツイ消しにきました ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ•̫͡•ʕ•̫͡•ʔ•̫͡•ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー',
+    start: 'ツイ消しにきました ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•ʔ•̫͡•ʕ•̫͡•ʔ•̫͡•ʕ•̫͡•ʕ•̫͡•ʔ•̫͡•| 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー',
     finish: 'ツイ消し終わりましたー ʕु•̫͡•ʔु ✧ | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー'
   create id: 7,
     start: 'ツイ消しします (˚ ˃̣̣̥ω˂̣̣̥ )  | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー',

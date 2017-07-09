@@ -123,6 +123,10 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'
-  gem 'capistrano-deploytags'
   gem 'capistrano-maintenance'
+end
+
+group :assets do
+  gem 'asset_sync'
+  gem 'fog-aws'
 end
