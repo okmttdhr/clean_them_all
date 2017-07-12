@@ -15,8 +15,8 @@ Rails.application.configure do
   config.i18n.fallbacks                = true
   config.active_support.deprecation    = :notify
 
-  # config.action_controller.asset_host = "//s3.amazonaws.com/kurorekishi-me"
-  # config.assets.prefix = '/production/assets'
+  config.action_controller.asset_host = '//d365mvoa1iiw1e.cloudfront.net'
+  config.assets.prefix = '/assets'
 
   config.log_formatter = ::Logger::Formatter.new
   if ENV["RAILS_LOG_TO_STDOUT"].present?

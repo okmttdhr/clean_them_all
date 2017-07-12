@@ -140,8 +140,6 @@ GEM
     capistrano-sidekiq (0.10.0)
       capistrano
       sidekiq (>= 3.4)
-    capistrano-yarn (2.0.2)
-      capistrano (~> 3.0)
     capistrano3-puma (3.1.1)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -551,7 +549,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-sidekiq
-  capistrano-yarn
   capistrano3-puma
   capybara
   configatron
