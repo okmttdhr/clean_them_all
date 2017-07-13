@@ -53,6 +53,7 @@ gem 'webpacker-react', '~> 0.3.1'
 gem 'js-routes'
 
 # css preprocessor
+gem 'sass-rails'
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
 
@@ -119,7 +120,6 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
-  gem 'capistrano-yarn'
   gem 'capistrano-rbenv'
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'

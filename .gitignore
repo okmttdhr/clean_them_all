@@ -17,18 +17,14 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
-
 .byebug_history
-/public/packs
-/node_modules
+
+/public/assets
 /public/packs
 /public/packs-test
 /node_modules
+/yarn-error.log
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 config/secrets.yml
-
-/public/production/assets

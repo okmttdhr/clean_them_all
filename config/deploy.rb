@@ -16,7 +16,6 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
 
 set :migration_role, :db
-set :assets_roles, %i(web)
 
 set :puma_role, :web
 set :puma_init_active_record, true

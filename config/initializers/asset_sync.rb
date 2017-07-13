@@ -8,6 +8,12 @@ if defined?(AssetSync)
     config.fog_region            = ENV['AWS_REGION']
     config.existing_remote_files = 'delete'
     config.gzip_compression      = true
-    config.manifest              = false
+    config.manifest              = true
+
+    config.add_local_file_paths do
+      Dir.chdir('public') do
+        Dir[File.join(Webpacker::Configuration.fetch(:public_output_path), '/**/**')]
+      end
+    end
   end
 end
