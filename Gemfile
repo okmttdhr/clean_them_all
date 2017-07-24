@@ -53,7 +53,7 @@ gem 'webpacker-react', '~> 0.3.1'
 gem 'js-routes'
 
 # css preprocessor
-gem 'sass-rails'
+gem 'sass'
 gem 'sassc-rails'
 gem 'uglifier', '>= 1.3.0'
 
