@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 5) do
 
-  create_table "job_parameters", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "job_parameters", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC" do |t|
     t.datetime "signedin_at", null: false
     t.integer "statuses_count", null: false
     t.datetime "registered_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.text "finish_message"
   end
 
-  create_table "jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC" do |t|
     t.bigint "user_id", null: false
     t.string "transition_state", null: false
     t.string "progression_state", null: false
@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 5) do
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
-  create_table "timeline_fragments", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "timeline_fragments", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC" do |t|
     t.bigint "job_id", null: false
     t.index ["job_id"], name: "index_timeline_fragments_on_job_id"
   end
 
-  create_table "users", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+  create_table "users", id: :bigint, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC" do |t|
     t.string "token", null: false
     t.string "secret", null: false
     t.string "name"
