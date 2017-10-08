@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 5) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["progression_state"], name: "index_jobs_on_progression_state"
+    t.index ["transition_state"], name: "index_jobs_on_transition_state"
     t.index ["user_id", "transition_state"], name: "index_jobs_on_user_id_and_transition_state"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end

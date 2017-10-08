@@ -4,4 +4,4 @@ polling:
 
 sweeper:
   class: Backend::SweeperJob
-  every: ['1m']
+  every: ['25s']
