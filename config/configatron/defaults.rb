@@ -8,7 +8,7 @@ configatron.twitter.access_token_secret = Rails.application.secrets.twitter_acce
 
 # AWS
 configatron.aws.region         = 'ap-northeast-1'
-configatron.aws.s3.bucket_name = 'jp.kurorekishi.me'
+configatron.aws.s3.bucket_name = 'kurorekishi.me'
 
 # bugsnag
 configatron.bugsnag.api_key = Rails.application.secrets.bugsnag_api_key
