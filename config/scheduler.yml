@@ -1,6 +1,6 @@
 polling:
   class: Backend::PollingJob
-  every: ['20s']
+  every: ['25s']
 
 sweeper:
   class: Backend::SweeperJob

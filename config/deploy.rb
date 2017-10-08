@@ -22,7 +22,7 @@ set :puma_init_active_record, true
 
 set :sidekiq_default_hooks, false
 set :sidekiq_role, %i(app)
-set :sidekiq_processes, 2
+set :sidekiq_processes, 1
 set :sidekiq_concurrency, 1
 set :sidekiq_monit_conf_dir, '/etc/monit.d'
 
