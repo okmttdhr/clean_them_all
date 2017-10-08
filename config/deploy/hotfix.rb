@@ -11,7 +11,7 @@ def current_branch
   `git branch`.match(/\* (\S+)\s/m)[1] || 'master'
 end
 
-set :proxy_host, 'manage.kurorekishi.me'
+set :proxy_host, ENV['AWS_DEFAULT_GATEWAY']
 set :ssh_options, {
  user: 'ec2-user',
  keys: %w(~/.ssh/id_rsa.ec2),

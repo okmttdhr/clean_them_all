@@ -126,7 +126,7 @@ group :development do
   gem 'capistrano-maintenance'
 end
 
-group :assets do
+group :development do
   gem 'asset_sync'
   gem 'fog-aws'
 end
