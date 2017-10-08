@@ -4,8 +4,8 @@ Rails.application.configure do
   config.eager_load                        = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-  config.public_file_server.enabled        = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.public_file_server.enabled    = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor          = :uglifier
   config.assets.compile                = false
   config.assets.quiet                  = true
@@ -15,7 +15,8 @@ Rails.application.configure do
   config.i18n.fallbacks                = true
   config.active_support.deprecation    = :notify
 
-  config.action_controller.asset_host = '//d365mvoa1iiw1e.cloudfront.net'
+  # config.action_controller.asset_host = '//d365mvoa1iiw1e.cloudfront.net'
+  config.action_controller.asset_host = 's3-ap-northeast-1.amazonaws.com/jp.kurorekishi.me'
   config.assets.prefix = '/assets'
 
   config.log_formatter = ::Logger::Formatter.new

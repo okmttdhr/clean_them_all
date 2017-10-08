@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # base
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.4'
 gem 'mysql2'
 gem 'puma', '~> 3.7'
 
@@ -126,7 +126,7 @@ group :development do
   gem 'capistrano-maintenance'
 end
 
-group :assets do
+group :development do
   gem 'asset_sync'
   gem 'fog-aws'
 end

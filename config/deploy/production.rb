@@ -7,7 +7,7 @@ def hosts_for_role(role)
   hosts        = %x( aws ec2 describe-instances --filters #{filters} --query #{query} --output text ).split("\n")
 end
 
-set :proxy_host, 'manage.kurorekishi.me'
+set :proxy_host, ENV['AWS_DEFAULT_GATEWAY']
 set :ssh_options, {
  user: 'ec2-user',
  keys: %w(~/.ssh/id_rsa.ec2),
