@@ -48,7 +48,7 @@ gem 'browser'
 gem 'rails-timeago'
 
 # js
-gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker', '~> 2.0'
 gem 'webpacker-react', '~> 0.3.1'
 gem 'js-routes'
 
@@ -126,7 +126,7 @@ group :development do
   gem 'capistrano-maintenance'
 end
 
-group :development do
+group :assets do
   gem 'asset_sync'
   gem 'fog-aws'
 end
