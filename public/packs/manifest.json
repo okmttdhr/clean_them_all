@@ -1,8 +1,8 @@
 {
-  "StatusPage.js": "/packs/StatusPage-376da2e568205467f886.js",
-  "StatusPage.js.map": "/packs/StatusPage-376da2e568205467f886.js.map",
-  "Uploader.js": "/packs/Uploader-c89404b97fa4e0a32ba3.js",
-  "Uploader.js.map": "/packs/Uploader-c89404b97fa4e0a32ba3.js.map",
-  "application.js": "/packs/application-5fb00c5a8c40b2a62702.js",
-  "application.js.map": "/packs/application-5fb00c5a8c40b2a62702.js.map"
+  "StatusPage.js": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/StatusPage-12d0d4f669fec18270d7.js",
+  "StatusPage.js.map": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/StatusPage-12d0d4f669fec18270d7.js.map",
+  "Uploader.js": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/Uploader-aee07e4a9fc7c4a2d3f1.js",
+  "Uploader.js.map": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/Uploader-aee07e4a9fc7c4a2d3f1.js.map",
+  "application.js": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/application-2648fb3e982861ae9a1b.js",
+  "application.js.map": "//s3-ap-northeast-1.amazonaws.com/kurorekishi.me/packs/application-2648fb3e982861ae9a1b.js.map"
 }

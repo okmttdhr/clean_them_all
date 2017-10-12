@@ -72,6 +72,12 @@ group :production do
   gem 'newrelic_rpm'
 end
 
+# for assets
+group :production do
+  gem 'asset_sync'
+  gem 'fog-aws'
+end
+
 group :test do
   gem 'webmock'
   gem 'database_cleaner'
@@ -124,9 +130,4 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-sidekiq'
   gem 'capistrano-maintenance'
-end
-
-group :assets do
-  gem 'asset_sync'
-  gem 'fog-aws'
 end
