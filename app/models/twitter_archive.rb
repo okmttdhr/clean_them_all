@@ -11,7 +11,7 @@ class TwitterArchive
   end
 
   def create_presigned_url
-    s3.bucket(configatron.aws.s3.bucket_name).object(object_key).presigned_url(:get, expires_in: 1.day)
+    s3.bucket(configatron.aws.s3.bucket_name).object(object_key).presigned_url(:get, expires_in: 1.day.to_i)
   end
 
   private
