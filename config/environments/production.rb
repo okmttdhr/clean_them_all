@@ -16,8 +16,8 @@ Rails.application.configure do
   config.active_support.deprecation    = :notify
 
   # config.action_controller.asset_host = '//d3l033qx3uhokz.cloudfront.net'
-  # config.assets.prefix = '/assets'
-  # config.action_controller.asset_host = '//kurorekishi.me.s3.amazonaws.com'
+  config.action_controller.asset_host   = '//s3-ap-northeast-1.amazonaws.com/kurorekishi.me'
+  config.assets.prefix                  = '/assets'
 
   config.log_formatter = ::Logger::Formatter.new
   if ENV["RAILS_LOG_TO_STDOUT"].present?
