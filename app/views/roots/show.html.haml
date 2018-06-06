@@ -1,6 +1,3 @@
-- content_for :page_scripts do
-  = render 'application/adsense/page_level_ads'
-
 #content-fullwidth.blog.blog-single
   #getstarted
     %article.post.format-standard.text-center
@@ -8,12 +5,14 @@
       = render 'roots/show/primary'
       %hr.no-margin
       .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
-        = render partial: 'application/adsense/rectangle'
+        =# render partial: 'application/adsense/rectangle'
+        = render partial: 'application/adsense/inarticle'
       = render 'roots/show/social'
       = render 'roots/show/features'
       = render 'roots/show/customers'
       .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
-        = render partial: 'application/adsense/rectangle'
+        =# render partial: 'application/adsense/rectangle'
+        = render partial: 'application/adsense/inarticle'
       .wrapped-content.bg-dark
         .primary-button
           - if current_user.blank?

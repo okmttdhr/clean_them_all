@@ -1,6 +1,3 @@
-- content_for :page_scripts do
-  = render 'application/adsense/page_level_ads'
-
 - content_for :scripts do
   = render 'cleaners/components/status', job: @job, server: @server_status
 
@@ -18,7 +15,8 @@
           = link_to 'show more status', 'javascript:void(0);', class: 'modal-open'
       %hr.no-margin
       .wrapped-content.text-center
-        = render partial: 'application/adsense/rectangle'
+        =# render partial: 'application/adsense/rectangle'
+        = render partial: 'application/adsense/inarticle'
   .primary-button.text-center(style='margin:8px')
     #operation
       = link_to('キャンセル', abort_cleaner_path, method: :post, class: 'button radius alert', disabled: @job.confirming?)

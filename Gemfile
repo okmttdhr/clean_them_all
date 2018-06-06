@@ -94,6 +94,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-doc'
 
   gem 'rspec'
   gem 'rspec-rails'
