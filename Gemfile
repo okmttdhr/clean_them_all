@@ -65,7 +65,7 @@ gem 'remodal-rails'
 
 # css packages
 gem 'normalize-rails'
-gem 'bourbon'
+gem 'bourbon', '= 4.3.4'
 gem 'google-webfonts-rails', github: 'masarakki/google-webfonts-rails', branch: 'for-rails5'
 
 group :production do
