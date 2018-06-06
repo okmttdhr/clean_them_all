@@ -5,14 +5,12 @@
       = render 'roots/show/primary'
       %hr.no-margin
       .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
-        =# render partial: 'application/adsense/rectangle'
-        = render partial: 'application/adsense/inarticle'
+        = render partial: 'application/adsense/rectangle_sync'
       = render 'roots/show/social'
       = render 'roots/show/features'
       = render 'roots/show/customers'
       .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
-        =# render partial: 'application/adsense/rectangle'
-        = render partial: 'application/adsense/inarticle'
+        = render partial: 'application/adsense/rectangle_sync'
       .wrapped-content.bg-dark
         .primary-button
           - if current_user.blank?
